@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "811826951752",
+    "project_id": "solo-app-786fd",
+    "storage_bucket": "solo-app-786fd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:811826951752:android:dc2c2bf6d3e8fd352a0a7d",
+        "android_client_info": {
+          "package_name": "com.SDS.SoloApp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDb7MNHVTCgj1CMa7DpRCyXbw7ggvswGqc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
