@@ -386,8 +386,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                   return;
                                 }
 
-                                context.goNamedAuth(
-                                    'homePage', context.mounted);
+                                context.goNamedAuth('idle', context.mounted);
                               },
                               text: 'Ingresar',
                               options: FFButtonOptions(

@@ -7,7 +7,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
 import 'edit_user_profile_widget.dart' show EditUserProfileWidget;
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -29,10 +28,6 @@ class EditUserProfileModel extends FlutterFlowModel<EditUserProfileWidget> {
   FocusNode? userNameFocusNode;
   TextEditingController? userNameController;
   String? Function(BuildContext, String?)? userNameControllerValidator;
-  // State field(s) for bio widget.
-  FocusNode? bioFocusNode;
-  TextEditingController? bioController;
-  String? Function(BuildContext, String?)? bioControllerValidator;
 
   /// Initialization and disposal methods.
 
@@ -44,9 +39,6 @@ class EditUserProfileModel extends FlutterFlowModel<EditUserProfileWidget> {
 
     userNameFocusNode?.dispose();
     userNameController?.dispose();
-
-    bioFocusNode?.dispose();
-    bioController?.dispose();
   }
 
   /// Action blocks are added here.

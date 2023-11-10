@@ -2,13 +2,13 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import 'home_page_widget.dart' show HomePageWidget;
+import 'home_page_admin_widget.dart' show HomePageAdminWidget;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class HomePageModel extends FlutterFlowModel<HomePageWidget> {
+class HomePageAdminModel extends FlutterFlowModel<HomePageAdminWidget> {
   /// Initialization and disposal methods.
 
   void initState(BuildContext context) {}

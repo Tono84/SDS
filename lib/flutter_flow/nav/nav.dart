@@ -79,13 +79,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       errorBuilder: (context, state) =>
-          appStateNotifier.loggedIn ? NavBarPage() : LoginWidget(),
+          appStateNotifier.loggedIn ? IdleWidget() : LoginWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) =>
-              appStateNotifier.loggedIn ? NavBarPage() : LoginWidget(),
+              appStateNotifier.loggedIn ? IdleWidget() : LoginWidget(),
         ),
         FFRoute(
           name: 'login',
@@ -110,16 +110,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'homePage',
           path: '/homePage',
-          builder: (context, params) => params.isEmpty
-              ? NavBarPage(initialPage: 'homePage')
-              : HomePageWidget(),
+          builder: (context, params) => HomePageWidget(),
         ),
         FFRoute(
           name: 'profilePage',
           path: '/profilePage',
-          builder: (context, params) => params.isEmpty
-              ? NavBarPage(initialPage: 'profilePage')
-              : ProfilePageWidget(),
+          builder: (context, params) => ProfilePageWidget(),
         ),
         FFRoute(
           name: 'createStory',
@@ -206,9 +202,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'allChatsPage',
           path: '/allChatsPage',
-          builder: (context, params) => params.isEmpty
-              ? NavBarPage(initialPage: 'allChatsPage')
-              : AllChatsPageWidget(),
+          builder: (context, params) => AllChatsPageWidget(),
         ),
         FFRoute(
           name: 'addChatUsers',
@@ -224,6 +218,26 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'createGroupChat',
           path: '/createGroupChat',
           builder: (context, params) => CreateGroupChatWidget(),
+        ),
+        FFRoute(
+          name: 'homePageAdmin',
+          path: '/homePageAdmin',
+          builder: (context, params) => HomePageAdminWidget(),
+        ),
+        FFRoute(
+          name: 'idle',
+          path: '/idle',
+          builder: (context, params) => IdleWidget(),
+        ),
+        FFRoute(
+          name: 'knowUs',
+          path: '/knowUs',
+          builder: (context, params) => KnowUsWidget(),
+        ),
+        FFRoute(
+          name: 'Services',
+          path: '/services',
+          builder: (context, params) => ServicesWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],

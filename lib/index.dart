@@ -30,3 +30,8 @@ export '/pages/add_chat_users/add_chat_users_widget.dart'
     show AddChatUsersWidget;
 export '/pages/create_group_chat/create_group_chat_widget.dart'
     show CreateGroupChatWidget;
+export '/pages/home_page_admin/home_page_admin_widget.dart'
+    show HomePageAdminWidget;
+export '/pages/idle/idle_widget.dart' show IdleWidget;
+export '/pages/know_us/know_us_widget.dart' show KnowUsWidget;
+export '/pages/services/services_widget.dart' show ServicesWidget;

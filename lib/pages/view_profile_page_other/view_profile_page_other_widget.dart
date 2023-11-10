@@ -162,20 +162,6 @@ class _ViewProfilePageOtherWidgetState extends State<ViewProfilePageOtherWidget>
                                             ),
                                       ),
                                     ),
-                                    Align(
-                                      alignment:
-                                          AlignmentDirectional(-1.00, 0.00),
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 8.0, 0.0, 0.0),
-                                        child: Text(
-                                          viewProfilePageOtherUsersRecord.bio,
-                                          textAlign: TextAlign.start,
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium,
-                                        ),
-                                      ),
-                                    ),
                                   ],
                                 ),
                               ),
