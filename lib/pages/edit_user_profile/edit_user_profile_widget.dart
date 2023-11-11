@@ -6,7 +6,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -34,8 +33,6 @@ class _EditUserProfileWidgetState extends State<EditUserProfileWidget> {
     _model.yourNameFocusNode ??= FocusNode();
 
     _model.userNameFocusNode ??= FocusNode();
-
-    _model.bioFocusNode ??= FocusNode();
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -368,79 +365,7 @@ class _EditUserProfileWidgetState extends State<EditUserProfileWidget> {
                             24.0, 4.0, 24.0, 0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Expanded(
-                              child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 12.0, 0.0, 0.0),
-                                child: TextFormField(
-                                  controller: _model.bioController ??=
-                                      TextEditingController(
-                                    text: editUserProfileUsersRecord.bio,
-                                  ),
-                                  focusNode: _model.bioFocusNode,
-                                  obscureText: false,
-                                  decoration: InputDecoration(
-                                    labelStyle:
-                                        FlutterFlowTheme.of(context).bodySmall,
-                                    hintText: 'Your Bio',
-                                    hintStyle:
-                                        FlutterFlowTheme.of(context).bodySmall,
-                                    enabledBorder: UnderlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryBackground,
-                                        width: 1.0,
-                                      ),
-                                      borderRadius: const BorderRadius.only(
-                                        topLeft: Radius.circular(4.0),
-                                        topRight: Radius.circular(4.0),
-                                      ),
-                                    ),
-                                    focusedBorder: UnderlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color: Color(0x00000000),
-                                        width: 1.0,
-                                      ),
-                                      borderRadius: const BorderRadius.only(
-                                        topLeft: Radius.circular(4.0),
-                                        topRight: Radius.circular(4.0),
-                                      ),
-                                    ),
-                                    errorBorder: UnderlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color: Color(0x00000000),
-                                        width: 1.0,
-                                      ),
-                                      borderRadius: const BorderRadius.only(
-                                        topLeft: Radius.circular(4.0),
-                                        topRight: Radius.circular(4.0),
-                                      ),
-                                    ),
-                                    focusedErrorBorder: UnderlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color: Color(0x00000000),
-                                        width: 1.0,
-                                      ),
-                                      borderRadius: const BorderRadius.only(
-                                        topLeft: Radius.circular(4.0),
-                                        topRight: Radius.circular(4.0),
-                                      ),
-                                    ),
-                                    contentPadding:
-                                        EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 8.0, 0.0, 0.0),
-                                  ),
-                                  style:
-                                      FlutterFlowTheme.of(context).bodyMedium,
-                                  textAlign: TextAlign.start,
-                                  maxLines: 4,
-                                  validator: _model.bioControllerValidator
-                                      .asValidator(context),
-                                ),
-                              ),
-                            ),
-                          ],
+                          children: [],
                         ),
                       ),
                     ],
@@ -456,15 +381,8 @@ class _EditUserProfileWidgetState extends State<EditUserProfileWidget> {
                           padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 40.0),
                           child: FFButtonWidget(
-                            onPressed: () async {
-                              await currentUserReference!
-                                  .update(createUsersRecordData(
-                                displayName: _model.yourNameController.text,
-                                userName: _model.userNameController.text,
-                                photoUrl: _model.uploadedFileUrl,
-                                bio: _model.bioController.text,
-                              ));
-                              context.pop();
+                            onPressed: () {
+                              print('Button pressed ...');
                             },
                             text: 'Save Changes',
                             options: FFButtonOptions(

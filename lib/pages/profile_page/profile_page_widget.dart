@@ -142,20 +142,6 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                         ),
                                       ),
                                     ),
-                                    Align(
-                                      alignment:
-                                          AlignmentDirectional(-1.00, 0.00),
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 8.0, 0.0, 0.0),
-                                        child: Text(
-                                          profilePageUsersRecord.bio,
-                                          textAlign: TextAlign.start,
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium,
-                                        ),
-                                      ),
-                                    ),
                                   ],
                                 ),
                               ),

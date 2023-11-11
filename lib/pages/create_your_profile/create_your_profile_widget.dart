@@ -1,11 +1,8 @@
-import '/auth/firebase_auth/auth_util.dart';
-import '/backend/backend.dart';
 import '/backend/firebase_storage/storage.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -428,16 +425,8 @@ class _CreateYourProfileWidgetState extends State<CreateYourProfileWidget> {
                       padding:
                           EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 40.0),
                       child: FFButtonWidget(
-                        onPressed: () async {
-                          await currentUserReference!
-                              .update(createUsersRecordData(
-                            displayName: _model.yourNameController.text,
-                            userName: _model.userNameController.text,
-                            photoUrl: _model.uploadedFileUrl,
-                            bio: _model.bioController.text,
-                          ));
-
-                          context.goNamed('homePage');
+                        onPressed: () {
+                          print('Button pressed ...');
                         },
                         text: 'Complete Setup',
                         options: FFButtonOptions(

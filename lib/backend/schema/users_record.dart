@@ -51,15 +51,10 @@ class UsersRecord extends FirestoreRecord {
   String get userName => _userName ?? '';
   bool hasUserName() => _userName != null;
 
-  // "bio" field.
-  String? _bio;
-  String get bio => _bio ?? '';
-  bool hasBio() => _bio != null;
-
-  // "isFollowed" field.
-  bool? _isFollowed;
-  bool get isFollowed => _isFollowed ?? false;
-  bool hasIsFollowed() => _isFollowed != null;
+  // "Rol" field.
+  String? _rol;
+  String get rol => _rol ?? '';
+  bool hasRol() => _rol != null;
 
   void _initializeFields() {
     _displayName = snapshotData['display_name'] as String?;
@@ -69,8 +64,7 @@ class UsersRecord extends FirestoreRecord {
     _createdTime = snapshotData['created_time'] as DateTime?;
     _phoneNumber = snapshotData['phone_number'] as String?;
     _userName = snapshotData['userName'] as String?;
-    _bio = snapshotData['bio'] as String?;
-    _isFollowed = snapshotData['isFollowed'] as bool?;
+    _rol = snapshotData['Rol'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -114,8 +108,7 @@ Map<String, dynamic> createUsersRecordData({
   DateTime? createdTime,
   String? phoneNumber,
   String? userName,
-  String? bio,
-  bool? isFollowed,
+  String? rol,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -126,8 +119,7 @@ Map<String, dynamic> createUsersRecordData({
       'created_time': createdTime,
       'phone_number': phoneNumber,
       'userName': userName,
-      'bio': bio,
-      'isFollowed': isFollowed,
+      'Rol': rol,
     }.withoutNulls,
   );
 
@@ -146,8 +138,7 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e1?.createdTime == e2?.createdTime &&
         e1?.phoneNumber == e2?.phoneNumber &&
         e1?.userName == e2?.userName &&
-        e1?.bio == e2?.bio &&
-        e1?.isFollowed == e2?.isFollowed;
+        e1?.rol == e2?.rol;
   }
 
   @override
@@ -159,8 +150,7 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e?.createdTime,
         e?.phoneNumber,
         e?.userName,
-        e?.bio,
-        e?.isFollowed
+        e?.rol
       ]);
 
   @override
