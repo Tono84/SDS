@@ -1,4 +1,4 @@
-import '/auth/firebase_auth/auth_util.dart';
+import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -51,55 +51,35 @@ class _KnowUsWidgetState extends State<KnowUsWidget> {
       key: scaffoldKey,
       backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
       appBar: AppBar(
-        backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
+        backgroundColor: Colors.black,
         automaticallyImplyLeading: false,
-        title: Row(
-          mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Align(
-              alignment: AlignmentDirectional(0.00, 0.00),
-              child: Text(
-                'SOLUCIONES DIGITALES SOLO',
-                style: FlutterFlowTheme.of(context).bodyMedium.override(
-                      fontFamily: 'Urbanist',
-                      fontSize: 20.0,
-                    ),
-              ),
-            ),
-          ],
-        ),
-        actions: [
-          InkWell(
-            splashColor: Colors.transparent,
-            focusColor: Colors.transparent,
-            hoverColor: Colors.transparent,
-            highlightColor: Colors.transparent,
-            onTap: () async {
-              GoRouter.of(context).prepareAuthEvent();
-              await authManager.signOut();
-              GoRouter.of(context).clearRedirectLocation();
-
-              context.goNamedAuth('login', context.mounted);
-            },
-            child: Icon(
-              Icons.login,
-              color: FlutterFlowTheme.of(context).secondaryText,
-              size: 24.0,
-            ),
+        leading: FlutterFlowIconButton(
+          borderColor: Colors.transparent,
+          borderRadius: 30.0,
+          borderWidth: 1.0,
+          buttonSize: 60.0,
+          icon: Icon(
+            Icons.arrow_back_rounded,
+            color: Colors.white,
+            size: 30.0,
           ),
-        ],
-        flexibleSpace: FlexibleSpaceBar(
-          background: ClipRRect(
-            borderRadius: BorderRadius.circular(8.0),
-            child: Image.asset(
-              'assets/images/a5931f399b7feea4ace1e2683556fc9d.jpg',
-              fit: BoxFit.cover,
-            ),
+          onPressed: () async {
+            context.pop();
+          },
+        ),
+        title: Align(
+          alignment: AlignmentDirectional(0.00, 0.00),
+          child: Text(
+            'SOLUCIONES DIGITALES SOLO',
+            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                  fontFamily: 'Urbanist',
+                  fontSize: 20.0,
+                ),
           ),
         ),
-        centerTitle: false,
-        elevation: 0.0,
+        actions: [],
+        centerTitle: true,
+        elevation: 2.0,
       ),
       body: Column(
         mainAxisSize: MainAxisSize.max,
@@ -312,38 +292,6 @@ class _KnowUsWidgetState extends State<KnowUsWidget> {
                   height: 100.0,
                   decoration: BoxDecoration(
                     color: FlutterFlowTheme.of(context).secondaryBackground,
-                  ),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: [
-                      FFButtonWidget(
-                        onPressed: () async {
-                          context.pushNamed('homePage');
-                        },
-                        text: 'Regresar',
-                        options: FFButtonOptions(
-                          height: 40.0,
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              24.0, 0.0, 24.0, 0.0),
-                          iconPadding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 0.0),
-                          color: FlutterFlowTheme.of(context).info,
-                          textStyle:
-                              FlutterFlowTheme.of(context).titleSmall.override(
-                                    fontFamily: 'Urbanist',
-                                    color: Colors.white,
-                                  ),
-                          elevation: 3.0,
-                          borderSide: BorderSide(
-                            color: Colors.transparent,
-                            width: 1.0,
-                          ),
-                          borderRadius: BorderRadius.circular(8.0),
-                        ),
-                      ),
-                    ],
                   ),
                 ),
               ],

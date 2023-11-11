@@ -84,7 +84,7 @@ class _HomePageAdminWidgetState extends State<HomePageAdminWidget> {
             },
             child: Icon(
               Icons.login,
-              color: FlutterFlowTheme.of(context).secondaryText,
+              color: FlutterFlowTheme.of(context).tertiary,
               size: 24.0,
             ),
           ),

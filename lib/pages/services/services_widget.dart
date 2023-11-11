@@ -51,7 +51,7 @@ class _ServicesWidgetState extends State<ServicesWidget> {
       key: scaffoldKey,
       backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
       appBar: AppBar(
-        backgroundColor: Colors.black,
+        backgroundColor: Color(0xFF030000),
         automaticallyImplyLeading: false,
         leading: FlutterFlowIconButton(
           borderColor: Colors.transparent,
@@ -64,7 +64,7 @@ class _ServicesWidgetState extends State<ServicesWidget> {
             size: 30.0,
           ),
           onPressed: () async {
-            context.goNamed('homePage');
+            context.pop();
           },
         ),
         title: Align(
@@ -154,7 +154,7 @@ class _ServicesWidgetState extends State<ServicesWidget> {
                                         alignment:
                                             AlignmentDirectional(0.00, 0.00),
                                         child: Text(
-                                          'Nuestros servicios:',
+                                          'NUESTROS SERVICIOS',
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
@@ -209,58 +209,36 @@ class _ServicesWidgetState extends State<ServicesWidget> {
                           Expanded(
                             child: Align(
                               alignment: AlignmentDirectional(0.00, 0.00),
-                              child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 60.0, 0.0),
-                                child: Text(
-                                  'Soporte técnico para computadoras de escritorio y portátiles, con sistema operativo Windows.',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Urbanist',
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondary,
-                                        fontSize: 16.0,
-                                      ),
-                                ),
+                              child: Text(
+                                'Soporte técnico (Windows)',
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Urbanist',
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondary,
+                                      fontSize: 16.0,
+                                    ),
                               ),
+                            ),
+                          ),
+                          Container(
+                            width: 100.0,
+                            height: 100.0,
+                            decoration: BoxDecoration(
+                              color: FlutterFlowTheme.of(context).info,
+                              shape: BoxShape.circle,
+                            ),
+                            child: Icon(
+                              Icons.reset_tv,
+                              color: FlutterFlowTheme.of(context).tertiary,
+                              size: 24.0,
                             ),
                           ),
                         ],
                       ),
                     ),
                   ),
-                ),
-                Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    FFButtonWidget(
-                      onPressed: () {
-                        print('Button pressed ...');
-                      },
-                      text: 'Solicitar',
-                      options: FFButtonOptions(
-                        height: 25.0,
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            24.0, 0.0, 24.0, 0.0),
-                        iconPadding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                        color: Color(0xFF1C4494),
-                        textStyle:
-                            FlutterFlowTheme.of(context).titleSmall.override(
-                                  fontFamily: 'Urbanist',
-                                  color: Colors.white,
-                                ),
-                        elevation: 3.0,
-                        borderSide: BorderSide(
-                          color: Colors.transparent,
-                          width: 1.0,
-                        ),
-                        borderRadius: BorderRadius.circular(8.0),
-                      ),
-                    ),
-                  ],
                 ),
                 Padding(
                   padding:
@@ -278,60 +256,47 @@ class _ServicesWidgetState extends State<ServicesWidget> {
                         )
                       ],
                     ),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Expanded(
-                          child: Align(
-                            alignment: AlignmentDirectional(0.00, 0.00),
-                            child: Text(
-                              'Instalación y mantenimiento de redes para hogares o PYMES.',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    fontFamily: 'Urbanist',
-                                    color:
-                                        FlutterFlowTheme.of(context).secondary,
-                                    fontSize: 16.0,
-                                  ),
+                    child: Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Expanded(
+                            child: Align(
+                              alignment: AlignmentDirectional(0.00, 0.00),
+                              child: Text(
+                                'Instalación y Mantenimiento de Redes (PYMES y Hogares)',
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Urbanist',
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondary,
+                                      fontSize: 16.0,
+                                    ),
+                              ),
                             ),
                           ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    FFButtonWidget(
-                      onPressed: () {
-                        print('Button pressed ...');
-                      },
-                      text: 'Solicitar',
-                      options: FFButtonOptions(
-                        height: 25.0,
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            24.0, 0.0, 24.0, 0.0),
-                        iconPadding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                        color: Color(0xFF1C4494),
-                        textStyle:
-                            FlutterFlowTheme.of(context).titleSmall.override(
-                                  fontFamily: 'Urbanist',
-                                  color: Colors.white,
-                                ),
-                        elevation: 3.0,
-                        borderSide: BorderSide(
-                          color: Colors.transparent,
-                          width: 1.0,
-                        ),
-                        borderRadius: BorderRadius.circular(8.0),
+                          Container(
+                            width: 100.0,
+                            height: 100.0,
+                            decoration: BoxDecoration(
+                              color: FlutterFlowTheme.of(context).info,
+                              shape: BoxShape.circle,
+                            ),
+                            child: Icon(
+                              Icons.reset_tv,
+                              color: FlutterFlowTheme.of(context).tertiary,
+                              size: 24.0,
+                            ),
+                          ),
+                        ],
                       ),
                     ),
-                  ],
+                  ),
                 ),
                 Padding(
                   padding:
@@ -372,41 +337,23 @@ class _ServicesWidgetState extends State<ServicesWidget> {
                               ),
                             ),
                           ),
+                          Container(
+                            width: 100.0,
+                            height: 100.0,
+                            decoration: BoxDecoration(
+                              color: FlutterFlowTheme.of(context).info,
+                              shape: BoxShape.circle,
+                            ),
+                            child: Icon(
+                              Icons.reset_tv,
+                              color: FlutterFlowTheme.of(context).tertiary,
+                              size: 24.0,
+                            ),
+                          ),
                         ],
                       ),
                     ),
                   ),
-                ),
-                Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    FFButtonWidget(
-                      onPressed: () {
-                        print('Button pressed ...');
-                      },
-                      text: 'Solicitar',
-                      options: FFButtonOptions(
-                        height: 25.0,
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            24.0, 0.0, 24.0, 0.0),
-                        iconPadding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                        color: Color(0xFF1C4494),
-                        textStyle:
-                            FlutterFlowTheme.of(context).titleSmall.override(
-                                  fontFamily: 'Urbanist',
-                                  color: Colors.white,
-                                ),
-                        elevation: 3.0,
-                        borderSide: BorderSide(
-                          color: Colors.transparent,
-                          width: 1.0,
-                        ),
-                        borderRadius: BorderRadius.circular(8.0),
-                      ),
-                    ),
-                  ],
                 ),
                 Padding(
                   padding:
@@ -445,7 +392,7 @@ class _ServicesWidgetState extends State<ServicesWidget> {
                                 child: Align(
                                   alignment: AlignmentDirectional(0.00, 0.00),
                                   child: Text(
-                                    'Consultorías en Tecnologías de la Información. ',
+                                    'Consultorías en TI',
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
@@ -457,43 +404,25 @@ class _ServicesWidgetState extends State<ServicesWidget> {
                                   ),
                                 ),
                               ),
+                              Container(
+                                width: 100.0,
+                                height: 100.0,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context).info,
+                                  shape: BoxShape.circle,
+                                ),
+                                child: Icon(
+                                  Icons.reset_tv,
+                                  color: FlutterFlowTheme.of(context).tertiary,
+                                  size: 24.0,
+                                ),
+                              ),
                             ],
                           ),
                         ),
                       ),
                     ),
                   ),
-                ),
-                Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    FFButtonWidget(
-                      onPressed: () {
-                        print('Button pressed ...');
-                      },
-                      text: 'Solicitar',
-                      options: FFButtonOptions(
-                        height: 25.0,
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            24.0, 0.0, 24.0, 0.0),
-                        iconPadding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                        color: Color(0xFF1C4494),
-                        textStyle:
-                            FlutterFlowTheme.of(context).titleSmall.override(
-                                  fontFamily: 'Urbanist',
-                                  color: Colors.white,
-                                ),
-                        elevation: 3.0,
-                        borderSide: BorderSide(
-                          color: Colors.transparent,
-                          width: 1.0,
-                        ),
-                        borderRadius: BorderRadius.circular(8.0),
-                      ),
-                    ),
-                  ],
                 ),
               ],
             ),

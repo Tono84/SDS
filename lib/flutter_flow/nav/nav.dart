@@ -235,9 +235,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => KnowUsWidget(),
         ),
         FFRoute(
-          name: 'Services',
+          name: 'services',
           path: '/services',
           builder: (context, params) => ServicesWidget(),
+        ),
+        FFRoute(
+          name: 'editUserProfileCopy',
+          path: '/solicitudes',
+          builder: (context, params) => EditUserProfileCopyWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],

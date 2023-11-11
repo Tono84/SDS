@@ -35,3 +35,5 @@ export '/pages/home_page_admin/home_page_admin_widget.dart'
 export '/pages/idle/idle_widget.dart' show IdleWidget;
 export '/pages/know_us/know_us_widget.dart' show KnowUsWidget;
 export '/pages/services/services_widget.dart' show ServicesWidget;
+export '/pages/edit_user_profile_copy/edit_user_profile_copy_widget.dart'
+    show EditUserProfileCopyWidget;
