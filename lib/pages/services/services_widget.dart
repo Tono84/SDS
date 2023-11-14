@@ -229,10 +229,19 @@ class _ServicesWidgetState extends State<ServicesWidget> {
                               color: FlutterFlowTheme.of(context).info,
                               shape: BoxShape.circle,
                             ),
-                            child: Icon(
-                              Icons.reset_tv,
-                              color: FlutterFlowTheme.of(context).tertiary,
-                              size: 24.0,
+                            child: InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onTap: () async {
+                                context.pushNamed('SolicitudST');
+                              },
+                              child: Icon(
+                                Icons.reset_tv,
+                                color: FlutterFlowTheme.of(context).tertiary,
+                                size: 24.0,
+                              ),
                             ),
                           ),
                         ],
@@ -259,41 +268,50 @@ class _ServicesWidgetState extends State<ServicesWidget> {
                     child: Padding(
                       padding:
                           EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Expanded(
-                            child: Align(
-                              alignment: AlignmentDirectional(0.00, 0.00),
-                              child: Text(
-                                'Instalación y Mantenimiento de Redes (PYMES y Hogares)',
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: 'Urbanist',
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondary,
-                                      fontSize: 16.0,
-                                    ),
+                      child: InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () async {
+                          context.pushNamed('Solicitud_IM');
+                        },
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Expanded(
+                              child: Align(
+                                alignment: AlignmentDirectional(0.00, 0.00),
+                                child: Text(
+                                  'Instalación y Mantenimiento de Redes (PYMES y Hogares)',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Urbanist',
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondary,
+                                        fontSize: 16.0,
+                                      ),
+                                ),
                               ),
                             ),
-                          ),
-                          Container(
-                            width: 100.0,
-                            height: 100.0,
-                            decoration: BoxDecoration(
-                              color: FlutterFlowTheme.of(context).info,
-                              shape: BoxShape.circle,
+                            Container(
+                              width: 100.0,
+                              height: 100.0,
+                              decoration: BoxDecoration(
+                                color: FlutterFlowTheme.of(context).info,
+                                shape: BoxShape.circle,
+                              ),
+                              child: Icon(
+                                Icons.reset_tv,
+                                color: FlutterFlowTheme.of(context).tertiary,
+                                size: 24.0,
+                              ),
                             ),
-                            child: Icon(
-                              Icons.reset_tv,
-                              color: FlutterFlowTheme.of(context).tertiary,
-                              size: 24.0,
-                            ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
                   ),
@@ -317,40 +335,49 @@ class _ServicesWidgetState extends State<ServicesWidget> {
                     child: Padding(
                       padding:
                           EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Expanded(
-                            child: Align(
-                              alignment: AlignmentDirectional(0.00, 0.00),
-                              child: Text(
-                                'Desarrollo de software',
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: 'Urbanist',
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondary,
-                                      fontSize: 16.0,
-                                    ),
+                      child: InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () async {
+                          context.pushNamed('Solicitud_DS');
+                        },
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Expanded(
+                              child: Align(
+                                alignment: AlignmentDirectional(0.00, 0.00),
+                                child: Text(
+                                  'Desarrollo de software',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Urbanist',
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondary,
+                                        fontSize: 16.0,
+                                      ),
+                                ),
                               ),
                             ),
-                          ),
-                          Container(
-                            width: 100.0,
-                            height: 100.0,
-                            decoration: BoxDecoration(
-                              color: FlutterFlowTheme.of(context).info,
-                              shape: BoxShape.circle,
+                            Container(
+                              width: 100.0,
+                              height: 100.0,
+                              decoration: BoxDecoration(
+                                color: FlutterFlowTheme.of(context).info,
+                                shape: BoxShape.circle,
+                              ),
+                              child: Icon(
+                                Icons.reset_tv,
+                                color: FlutterFlowTheme.of(context).tertiary,
+                                size: 24.0,
+                              ),
                             ),
-                            child: Icon(
-                              Icons.reset_tv,
-                              color: FlutterFlowTheme.of(context).tertiary,
-                              size: 24.0,
-                            ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
                   ),
@@ -384,40 +411,50 @@ class _ServicesWidgetState extends State<ServicesWidget> {
                         child: Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 15.0, 0.0, 0.0),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Expanded(
-                                child: Align(
-                                  alignment: AlignmentDirectional(0.00, 0.00),
-                                  child: Text(
-                                    'Consultorías en TI',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Urbanist',
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondary,
-                                          fontSize: 16.0,
-                                        ),
+                          child: InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            onTap: () async {
+                              context.pushNamed('Solicitud_CTI');
+                            },
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Expanded(
+                                  child: Align(
+                                    alignment: AlignmentDirectional(0.00, 0.00),
+                                    child: Text(
+                                      'Consultorías en TI',
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Urbanist',
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondary,
+                                            fontSize: 16.0,
+                                          ),
+                                    ),
                                   ),
                                 ),
-                              ),
-                              Container(
-                                width: 100.0,
-                                height: 100.0,
-                                decoration: BoxDecoration(
-                                  color: FlutterFlowTheme.of(context).info,
-                                  shape: BoxShape.circle,
+                                Container(
+                                  width: 100.0,
+                                  height: 100.0,
+                                  decoration: BoxDecoration(
+                                    color: FlutterFlowTheme.of(context).info,
+                                    shape: BoxShape.circle,
+                                  ),
+                                  child: Icon(
+                                    Icons.reset_tv,
+                                    color:
+                                        FlutterFlowTheme.of(context).tertiary,
+                                    size: 24.0,
+                                  ),
                                 ),
-                                child: Icon(
-                                  Icons.reset_tv,
-                                  color: FlutterFlowTheme.of(context).tertiary,
-                                  size: 24.0,
-                                ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
                         ),
                       ),

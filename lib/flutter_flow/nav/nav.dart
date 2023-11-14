@@ -113,9 +113,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => HomePageWidget(),
         ),
         FFRoute(
-          name: 'profilePage',
-          path: '/profilePage',
-          builder: (context, params) => ProfilePageWidget(),
+          name: 'SolicitudST',
+          path: '/solicitudST',
+          builder: (context, params) => SolicitudSTWidget(),
         ),
         FFRoute(
           name: 'createStory',
@@ -126,26 +126,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'createPost',
           path: '/createPost',
           builder: (context, params) => CreatePostWidget(),
-        ),
-        FFRoute(
-          name: 'postDetails',
-          path: '/postDetails',
-          asyncParams: {
-            'userRecord': getDoc(['users'], UsersRecord.fromSnapshot),
-          },
-          builder: (context, params) => PostDetailsWidget(
-            postReference: params.getParam('postReference',
-                ParamType.DocumentReference, false, ['userPosts']),
-            userRecord: params.getParam('userRecord', ParamType.Document),
-          ),
-        ),
-        FFRoute(
-          name: 'storyDetails',
-          path: '/storyDetails',
-          builder: (context, params) => StoryDetailsWidget(
-            initialStoryIndex:
-                params.getParam('initialStoryIndex', ParamType.int),
-          ),
         ),
         FFRoute(
           name: 'editSettings',
@@ -200,11 +180,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           ),
         ),
         FFRoute(
-          name: 'allChatsPage',
-          path: '/allChatsPage',
-          builder: (context, params) => AllChatsPageWidget(),
-        ),
-        FFRoute(
           name: 'addChatUsers',
           path: '/addChatUsers',
           asyncParams: {
@@ -213,11 +188,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => AddChatUsersWidget(
             chat: params.getParam('chat', ParamType.Document),
           ),
-        ),
-        FFRoute(
-          name: 'createGroupChat',
-          path: '/createGroupChat',
-          builder: (context, params) => CreateGroupChatWidget(),
         ),
         FFRoute(
           name: 'homePageAdmin',
@@ -243,6 +213,43 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'editUserProfileCopy',
           path: '/solicitudes',
           builder: (context, params) => EditUserProfileCopyWidget(),
+        ),
+        FFRoute(
+          name: 'DetalledeHistorial',
+          path: '/DetallesServicio',
+          asyncParams: {
+            'detallehistorial':
+                getDoc(['Requests'], RequestsRecord.fromSnapshot),
+          },
+          builder: (context, params) => DetalledeHistorialWidget(
+            detallehistorial:
+                params.getParam('detallehistorial', ParamType.Document),
+          ),
+        ),
+        FFRoute(
+          name: 'Hi',
+          path: '/hi',
+          builder: (context, params) => HiWidget(),
+        ),
+        FFRoute(
+          name: 'HistorialClieCopy',
+          path: '/HistoriaClie',
+          builder: (context, params) => HistorialClieCopyWidget(),
+        ),
+        FFRoute(
+          name: 'Solicitud_IM',
+          path: '/solicitudIM',
+          builder: (context, params) => SolicitudIMWidget(),
+        ),
+        FFRoute(
+          name: 'Solicitud_DS',
+          path: '/solicitudDS',
+          builder: (context, params) => SolicitudDSWidget(),
+        ),
+        FFRoute(
+          name: 'Solicitud_CTI',
+          path: '/solicitudCTI',
+          builder: (context, params) => SolicitudCTIWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],

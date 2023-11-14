@@ -7,11 +7,9 @@ export '/pages/create_your_profile/create_your_profile_widget.dart'
 export '/pages/forgot_password/forgot_password_widget.dart'
     show ForgotPasswordWidget;
 export '/pages/home_page/home_page_widget.dart' show HomePageWidget;
-export '/pages/profile_page/profile_page_widget.dart' show ProfilePageWidget;
+export '/pages/solicitud_s_t/solicitud_s_t_widget.dart' show SolicitudSTWidget;
 export '/pages/create_story/create_story_widget.dart' show CreateStoryWidget;
 export '/pages/create_post/create_post_widget.dart' show CreatePostWidget;
-export '/pages/post_details/post_details_widget.dart' show PostDetailsWidget;
-export '/pages/story_details/story_details_widget.dart' show StoryDetailsWidget;
 export '/pages/edit_settings/edit_settings_widget.dart' show EditSettingsWidget;
 export '/pages/edit_user_profile/edit_user_profile_widget.dart'
     show EditUserProfileWidget;
@@ -24,12 +22,8 @@ export '/pages/view_profile_page_other/view_profile_page_other_widget.dart'
 export '/pages/create_dog_profile_new/create_dog_profile_new_widget.dart'
     show CreateDogProfileNewWidget;
 export '/pages/chat_page/chat_page_widget.dart' show ChatPageWidget;
-export '/pages/all_chats_page/all_chats_page_widget.dart'
-    show AllChatsPageWidget;
 export '/pages/add_chat_users/add_chat_users_widget.dart'
     show AddChatUsersWidget;
-export '/pages/create_group_chat/create_group_chat_widget.dart'
-    show CreateGroupChatWidget;
 export '/pages/home_page_admin/home_page_admin_widget.dart'
     show HomePageAdminWidget;
 export '/pages/idle/idle_widget.dart' show IdleWidget;
@@ -37,3 +31,12 @@ export '/pages/know_us/know_us_widget.dart' show KnowUsWidget;
 export '/pages/services/services_widget.dart' show ServicesWidget;
 export '/pages/edit_user_profile_copy/edit_user_profile_copy_widget.dart'
     show EditUserProfileCopyWidget;
+export '/pages/detallede_historial/detallede_historial_widget.dart'
+    show DetalledeHistorialWidget;
+export '/pages/hi/hi_widget.dart' show HiWidget;
+export '/pages/historial_clie_copy/historial_clie_copy_widget.dart'
+    show HistorialClieCopyWidget;
+export '/pages/solicitud_i_m/solicitud_i_m_widget.dart' show SolicitudIMWidget;
+export '/pages/solicitud_d_s/solicitud_d_s_widget.dart' show SolicitudDSWidget;
+export '/pages/solicitud_c_t_i/solicitud_c_t_i_widget.dart'
+    show SolicitudCTIWidget;
