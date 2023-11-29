@@ -113,39 +113,19 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => HomePageWidget(),
         ),
         FFRoute(
-          name: 'profilePage',
-          path: '/profilePage',
-          builder: (context, params) => ProfilePageWidget(),
+          name: 'SolicitudST',
+          path: '/solicitudST',
+          builder: (context, params) => SolicitudSTWidget(),
         ),
         FFRoute(
-          name: 'createStory',
-          path: '/createStory',
-          builder: (context, params) => CreateStoryWidget(),
+          name: 'CalificarServicio',
+          path: '/calificarServicio',
+          builder: (context, params) => CalificarServicioWidget(),
         ),
         FFRoute(
           name: 'createPost',
           path: '/createPost',
           builder: (context, params) => CreatePostWidget(),
-        ),
-        FFRoute(
-          name: 'postDetails',
-          path: '/postDetails',
-          asyncParams: {
-            'userRecord': getDoc(['users'], UsersRecord.fromSnapshot),
-          },
-          builder: (context, params) => PostDetailsWidget(
-            postReference: params.getParam('postReference',
-                ParamType.DocumentReference, false, ['userPosts']),
-            userRecord: params.getParam('userRecord', ParamType.Document),
-          ),
-        ),
-        FFRoute(
-          name: 'storyDetails',
-          path: '/storyDetails',
-          builder: (context, params) => StoryDetailsWidget(
-            initialStoryIndex:
-                params.getParam('initialStoryIndex', ParamType.int),
-          ),
         ),
         FFRoute(
           name: 'editSettings',
@@ -173,16 +153,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => ChangePasswordWidget(),
         ),
         FFRoute(
-          name: 'viewProfilePageOther',
-          path: '/viewProfilePageOther',
-          asyncParams: {
-            'userDetails': getDoc(['users'], UsersRecord.fromSnapshot),
-          },
-          builder: (context, params) => ViewProfilePageOtherWidget(
-            userDetails: params.getParam('userDetails', ParamType.Document),
-          ),
-        ),
-        FFRoute(
           name: 'createDogProfile_New',
           path: '/createDogProfileNew',
           builder: (context, params) => CreateDogProfileNewWidget(),
@@ -200,11 +170,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           ),
         ),
         FFRoute(
-          name: 'allChatsPage',
-          path: '/allChatsPage',
-          builder: (context, params) => AllChatsPageWidget(),
-        ),
-        FFRoute(
           name: 'addChatUsers',
           path: '/addChatUsers',
           asyncParams: {
@@ -213,11 +178,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => AddChatUsersWidget(
             chat: params.getParam('chat', ParamType.Document),
           ),
-        ),
-        FFRoute(
-          name: 'createGroupChat',
-          path: '/createGroupChat',
-          builder: (context, params) => CreateGroupChatWidget(),
         ),
         FFRoute(
           name: 'homePageAdmin',
@@ -235,9 +195,61 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => KnowUsWidget(),
         ),
         FFRoute(
-          name: 'Services',
+          name: 'services',
           path: '/services',
           builder: (context, params) => ServicesWidget(),
+        ),
+        FFRoute(
+          name: 'editUserProfileCopy',
+          path: '/solicitudes',
+          builder: (context, params) => EditUserProfileCopyWidget(),
+        ),
+        FFRoute(
+          name: 'DetalledeHistorial',
+          path: '/DetallesServicio',
+          asyncParams: {
+            'detallehistorial':
+                getDoc(['Requests'], RequestsRecord.fromSnapshot),
+          },
+          builder: (context, params) => DetalledeHistorialWidget(
+            detallehistorial:
+                params.getParam('detallehistorial', ParamType.Document),
+          ),
+        ),
+        FFRoute(
+          name: 'Hi',
+          path: '/hi',
+          builder: (context, params) => HiWidget(),
+        ),
+        FFRoute(
+          name: 'HistorialCliente',
+          path: '/HistoriaClie',
+          builder: (context, params) => HistorialClienteWidget(),
+        ),
+        FFRoute(
+          name: 'Solicitud_IM',
+          path: '/solicitudIM',
+          builder: (context, params) => SolicitudIMWidget(),
+        ),
+        FFRoute(
+          name: 'Solicitud_DS',
+          path: '/solicitudDS',
+          builder: (context, params) => SolicitudDSWidget(),
+        ),
+        FFRoute(
+          name: 'Solicitud_CTI',
+          path: '/solicitudCTI',
+          builder: (context, params) => SolicitudCTIWidget(),
+        ),
+        FFRoute(
+          name: 'pInvoice',
+          path: '/pInvoice',
+          builder: (context, params) => PInvoiceWidget(),
+        ),
+        FFRoute(
+          name: 'blog',
+          path: '/Blog',
+          builder: (context, params) => BlogWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],
@@ -420,13 +432,9 @@ class FFRoute {
           final child = appStateNotifier.loading
               ? Container(
                   color: Colors.transparent,
-                  child: Center(
-                    child: Image.asset(
-                      'assets/images/Sniff_0.0_Splash@2x.png',
-                      width: MediaQuery.sizeOf(context).width * 1.0,
-                      height: MediaQuery.sizeOf(context).height * 1.0,
-                      fit: BoxFit.cover,
-                    ),
+                  child: Image.asset(
+                    'assets/images/Screenshot_38.png',
+                    fit: BoxFit.cover,
                   ),
                 )
               : page;

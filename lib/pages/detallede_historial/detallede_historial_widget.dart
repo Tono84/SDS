@@ -1,3 +1,4 @@
+import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -6,25 +7,31 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'know_us_model.dart';
-export 'know_us_model.dart';
+import 'detallede_historial_model.dart';
+export 'detallede_historial_model.dart';
 
-class KnowUsWidget extends StatefulWidget {
-  const KnowUsWidget({Key? key}) : super(key: key);
+class DetalledeHistorialWidget extends StatefulWidget {
+  const DetalledeHistorialWidget({
+    Key? key,
+    required this.detallehistorial,
+  }) : super(key: key);
+
+  final RequestsRecord? detallehistorial;
 
   @override
-  _KnowUsWidgetState createState() => _KnowUsWidgetState();
+  _DetalledeHistorialWidgetState createState() =>
+      _DetalledeHistorialWidgetState();
 }
 
-class _KnowUsWidgetState extends State<KnowUsWidget> {
-  late KnowUsModel _model;
+class _DetalledeHistorialWidgetState extends State<DetalledeHistorialWidget> {
+  late DetalledeHistorialModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => KnowUsModel());
+    _model = createModel(context, () => DetalledeHistorialModel());
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -64,13 +71,13 @@ class _KnowUsWidgetState extends State<KnowUsWidget> {
             size: 30.0,
           ),
           onPressed: () async {
-            context.pop();
+            context.safePop();
           },
         ),
         title: Align(
           alignment: AlignmentDirectional(0.00, 0.00),
           child: Text(
-            'SOLUCIONES DIGITALES SOLO',
+            'Detalles de servicio',
             style: FlutterFlowTheme.of(context).bodyMedium.override(
                   fontFamily: 'Urbanist',
                   fontSize: 20.0,
@@ -177,122 +184,51 @@ class _KnowUsWidgetState extends State<KnowUsWidget> {
               ],
             ),
           ),
-          Expanded(
-            child: ListView(
-              padding: EdgeInsets.zero,
-              scrollDirection: Axis.vertical,
+          Container(
+            width: 366.0,
+            height: 453.0,
+            decoration: BoxDecoration(
+              color: FlutterFlowTheme.of(context).secondaryBackground,
+            ),
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Padding(
-                  padding:
-                      EdgeInsetsDirectional.fromSTEB(15.0, 15.0, 15.0, 15.0),
-                  child: Container(
-                    width: 100.0,
-                    height: 321.0,
-                    decoration: BoxDecoration(
-                      color: FlutterFlowTheme.of(context).secondaryBackground,
-                      boxShadow: [
-                        BoxShadow(
-                          blurRadius: 4.0,
-                          color: Color(0x33000000),
-                          offset: Offset(0.0, 2.0),
-                        )
-                      ],
-                    ),
-                    child: Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Expanded(
-                            child: Align(
-                              alignment: AlignmentDirectional(0.00, 0.00),
-                              child: Text(
-                                'Misión',
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: 'Urbanist',
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondary,
-                                      fontSize: 20.0,
-                                    ),
-                              ),
-                            ),
-                          ),
-                          Expanded(
-                            child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 5.0, 0.0),
-                              child: Text(
-                                'Ser el socio confiable y experto en tecnología de nuestros clientes, proporcionando soluciones digitales de alta calidad que les ayuden a alcanzar el éxito en un mundo cada vez más digitalizado. Estamos dedicados a hacer realidad esta misión cada día en cada PYME y cada hogar, brindando servicios excepcionales y superando las expectativas de nuestros clientes.',
-                                textAlign: TextAlign.justify,
-                                style: FlutterFlowTheme.of(context).bodyMedium,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
+                Text(
+                  valueOrDefault<String>(
+                    widget.detallehistorial?.usuario?.id,
+                    '0',
                   ),
+                  style: FlutterFlowTheme.of(context).bodyMedium,
                 ),
-                Padding(
-                  padding:
-                      EdgeInsetsDirectional.fromSTEB(15.0, 15.0, 15.0, 15.0),
-                  child: Container(
-                    width: 100.0,
-                    height: 350.0,
-                    decoration: BoxDecoration(
-                      color: FlutterFlowTheme.of(context).secondaryBackground,
-                      boxShadow: [
-                        BoxShadow(
-                          blurRadius: 4.0,
-                          color: Color(0x33000000),
-                          offset: Offset(0.0, 2.0),
-                        )
-                      ],
-                    ),
-                    child: Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Expanded(
-                            child: Align(
-                              alignment: AlignmentDirectional(0.00, 0.00),
-                              child: Text(
-                                'Visión',
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: 'Urbanist',
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondary,
-                                      fontSize: 20.0,
-                                    ),
-                              ),
-                            ),
-                          ),
-                          Expanded(
-                            child: Text(
-                              'Ser el socio preferido de pymes y hogares en su viaje hacia la transformación digital, proporcionando soluciones tecnológicas accesibles y efectivas que mejoren sus operaciones comerciales y su vida cotidiana. Queremos ser reconocidos por nuestro compromiso con la satisfacción del cliente y por el impacto positivo que generamos en las comunidades que servimos.',
-                              style: FlutterFlowTheme.of(context).bodyMedium,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
+                Text(
+                  valueOrDefault<String>(
+                    widget.detallehistorial?.marca,
+                    '0',
                   ),
+                  style: FlutterFlowTheme.of(context).bodyMedium,
                 ),
-                Container(
-                  width: 100.0,
-                  height: 100.0,
-                  decoration: BoxDecoration(
-                    color: FlutterFlowTheme.of(context).secondaryBackground,
+                Text(
+                  valueOrDefault<String>(
+                    widget.detallehistorial?.tipoSoporte,
+                    '0',
                   ),
+                  style: FlutterFlowTheme.of(context).bodyMedium,
+                ),
+                Text(
+                  valueOrDefault<String>(
+                    widget.detallehistorial?.tipoComputadora,
+                    '0',
+                  ),
+                  style: FlutterFlowTheme.of(context).bodyMedium,
+                ),
+                Text(
+                  valueOrDefault<String>(
+                    widget.detallehistorial?.descripcion,
+                    '0',
+                  ),
+                  style: FlutterFlowTheme.of(context).bodyMedium,
                 ),
               ],
             ),

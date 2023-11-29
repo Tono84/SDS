@@ -1,3 +1,4 @@
+import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -6,25 +7,25 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'know_us_model.dart';
-export 'know_us_model.dart';
+import 'historial_cliente_model.dart';
+export 'historial_cliente_model.dart';
 
-class KnowUsWidget extends StatefulWidget {
-  const KnowUsWidget({Key? key}) : super(key: key);
+class HistorialClienteWidget extends StatefulWidget {
+  const HistorialClienteWidget({Key? key}) : super(key: key);
 
   @override
-  _KnowUsWidgetState createState() => _KnowUsWidgetState();
+  _HistorialClienteWidgetState createState() => _HistorialClienteWidgetState();
 }
 
-class _KnowUsWidgetState extends State<KnowUsWidget> {
-  late KnowUsModel _model;
+class _HistorialClienteWidgetState extends State<HistorialClienteWidget> {
+  late HistorialClienteModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => KnowUsModel());
+    _model = createModel(context, () => HistorialClienteModel());
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -70,7 +71,7 @@ class _KnowUsWidgetState extends State<KnowUsWidget> {
         title: Align(
           alignment: AlignmentDirectional(0.00, 0.00),
           child: Text(
-            'SOLUCIONES DIGITALES SOLO',
+            'Historial',
             style: FlutterFlowTheme.of(context).bodyMedium.override(
                   fontFamily: 'Urbanist',
                   fontSize: 20.0,
@@ -178,123 +179,80 @@ class _KnowUsWidgetState extends State<KnowUsWidget> {
             ),
           ),
           Expanded(
-            child: ListView(
-              padding: EdgeInsets.zero,
-              scrollDirection: Axis.vertical,
-              children: [
-                Padding(
-                  padding:
-                      EdgeInsetsDirectional.fromSTEB(15.0, 15.0, 15.0, 15.0),
-                  child: Container(
-                    width: 100.0,
-                    height: 321.0,
-                    decoration: BoxDecoration(
-                      color: FlutterFlowTheme.of(context).secondaryBackground,
-                      boxShadow: [
-                        BoxShadow(
-                          blurRadius: 4.0,
-                          color: Color(0x33000000),
-                          offset: Offset(0.0, 2.0),
-                        )
-                      ],
-                    ),
-                    child: Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Expanded(
-                            child: Align(
-                              alignment: AlignmentDirectional(0.00, 0.00),
-                              child: Text(
-                                'Misión',
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: 'Urbanist',
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondary,
-                                      fontSize: 20.0,
-                                    ),
-                              ),
-                            ),
-                          ),
-                          Expanded(
-                            child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 5.0, 0.0),
-                              child: Text(
-                                'Ser el socio confiable y experto en tecnología de nuestros clientes, proporcionando soluciones digitales de alta calidad que les ayuden a alcanzar el éxito en un mundo cada vez más digitalizado. Estamos dedicados a hacer realidad esta misión cada día en cada PYME y cada hogar, brindando servicios excepcionales y superando las expectativas de nuestros clientes.',
-                                textAlign: TextAlign.justify,
-                                style: FlutterFlowTheme.of(context).bodyMedium,
-                              ),
-                            ),
-                          ),
-                        ],
+            child: StreamBuilder<List<RequestsRecord>>(
+              stream: queryRequestsRecord(),
+              builder: (context, snapshot) {
+                // Customize what your widget looks like when it's loading.
+                if (!snapshot.hasData) {
+                  return Center(
+                    child: SizedBox(
+                      width: 50.0,
+                      height: 50.0,
+                      child: CircularProgressIndicator(
+                        valueColor: AlwaysStoppedAnimation<Color>(
+                          FlutterFlowTheme.of(context).primary,
+                        ),
                       ),
                     ),
-                  ),
-                ),
-                Padding(
-                  padding:
-                      EdgeInsetsDirectional.fromSTEB(15.0, 15.0, 15.0, 15.0),
-                  child: Container(
-                    width: 100.0,
-                    height: 350.0,
-                    decoration: BoxDecoration(
-                      color: FlutterFlowTheme.of(context).secondaryBackground,
-                      boxShadow: [
-                        BoxShadow(
-                          blurRadius: 4.0,
-                          color: Color(0x33000000),
-                          offset: Offset(0.0, 2.0),
-                        )
-                      ],
-                    ),
-                    child: Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Expanded(
-                            child: Align(
-                              alignment: AlignmentDirectional(0.00, 0.00),
-                              child: Text(
-                                'Visión',
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: 'Urbanist',
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondary,
-                                      fontSize: 20.0,
-                                    ),
-                              ),
-                            ),
-                          ),
-                          Expanded(
-                            child: Text(
-                              'Ser el socio preferido de pymes y hogares en su viaje hacia la transformación digital, proporcionando soluciones tecnológicas accesibles y efectivas que mejoren sus operaciones comerciales y su vida cotidiana. Queremos ser reconocidos por nuestro compromiso con la satisfacción del cliente y por el impacto positivo que generamos en las comunidades que servimos.',
+                  );
+                }
+                List<RequestsRecord> listViewRequestsRecordList =
+                    snapshot.data!;
+                return ListView.builder(
+                  padding: EdgeInsets.zero,
+                  scrollDirection: Axis.vertical,
+                  itemCount: listViewRequestsRecordList.length,
+                  itemBuilder: (context, listViewIndex) {
+                    final listViewRequestsRecord =
+                        listViewRequestsRecordList[listViewIndex];
+                    return Container(
+                      width: 100.0,
+                      height: 90.0,
+                      decoration: BoxDecoration(
+                        color: FlutterFlowTheme.of(context).secondaryBackground,
+                      ),
+                      child: InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onDoubleTap: () async {},
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Text(
+                              listViewRequestsRecord.tipoSoftware,
                               style: FlutterFlowTheme.of(context).bodyMedium,
                             ),
-                          ),
-                        ],
+                            Text(
+                              listViewRequestsRecord.servidor,
+                              style: FlutterFlowTheme.of(context).bodyMedium,
+                            ),
+                            Text(
+                              listViewRequestsRecord.tipoUso,
+                              style: FlutterFlowTheme.of(context).bodyMedium,
+                            ),
+                            Column(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.end,
+                              children: [
+                                Text(
+                                  listViewRequestsRecord.baseDatos,
+                                  style:
+                                      FlutterFlowTheme.of(context).bodyMedium,
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
                       ),
-                    ),
-                  ),
-                ),
-                Container(
-                  width: 100.0,
-                  height: 100.0,
-                  decoration: BoxDecoration(
-                    color: FlutterFlowTheme.of(context).secondaryBackground,
-                  ),
-                ),
-              ],
+                    );
+                  },
+                );
+              },
             ),
           ),
         ],
