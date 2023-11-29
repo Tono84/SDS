@@ -7,31 +7,25 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'detallede_historial_model.dart';
-export 'detallede_historial_model.dart';
+import 'historial_cliente_model.dart';
+export 'historial_cliente_model.dart';
 
-class DetalledeHistorialWidget extends StatefulWidget {
-  const DetalledeHistorialWidget({
-    Key? key,
-    required this.detallehistorial,
-  }) : super(key: key);
-
-  final RequestsRecord? detallehistorial;
+class HistorialClienteWidget extends StatefulWidget {
+  const HistorialClienteWidget({Key? key}) : super(key: key);
 
   @override
-  _DetalledeHistorialWidgetState createState() =>
-      _DetalledeHistorialWidgetState();
+  _HistorialClienteWidgetState createState() => _HistorialClienteWidgetState();
 }
 
-class _DetalledeHistorialWidgetState extends State<DetalledeHistorialWidget> {
-  late DetalledeHistorialModel _model;
+class _HistorialClienteWidgetState extends State<HistorialClienteWidget> {
+  late HistorialClienteModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => DetalledeHistorialModel());
+    _model = createModel(context, () => HistorialClienteModel());
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -71,13 +65,13 @@ class _DetalledeHistorialWidgetState extends State<DetalledeHistorialWidget> {
             size: 30.0,
           ),
           onPressed: () async {
-            context.safePop();
+            context.pop();
           },
         ),
         title: Align(
           alignment: AlignmentDirectional(0.00, 0.00),
           child: Text(
-            'Detalles de servicio',
+            'Historial',
             style: FlutterFlowTheme.of(context).bodyMedium.override(
                   fontFamily: 'Urbanist',
                   fontSize: 20.0,
@@ -184,53 +178,81 @@ class _DetalledeHistorialWidgetState extends State<DetalledeHistorialWidget> {
               ],
             ),
           ),
-          Container(
-            width: 366.0,
-            height: 453.0,
-            decoration: BoxDecoration(
-              color: FlutterFlowTheme.of(context).secondaryBackground,
-            ),
-            child: Column(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  valueOrDefault<String>(
-                    widget.detallehistorial?.usuario?.id,
-                    '0',
-                  ),
-                  style: FlutterFlowTheme.of(context).bodyMedium,
-                ),
-                Text(
-                  valueOrDefault<String>(
-                    widget.detallehistorial?.marca,
-                    '0',
-                  ),
-                  style: FlutterFlowTheme.of(context).bodyMedium,
-                ),
-                Text(
-                  valueOrDefault<String>(
-                    widget.detallehistorial?.tipoSoporte,
-                    '0',
-                  ),
-                  style: FlutterFlowTheme.of(context).bodyMedium,
-                ),
-                Text(
-                  valueOrDefault<String>(
-                    widget.detallehistorial?.tipoComputadora,
-                    '0',
-                  ),
-                  style: FlutterFlowTheme.of(context).bodyMedium,
-                ),
-                Text(
-                  valueOrDefault<String>(
-                    widget.detallehistorial?.descripcion,
-                    '0',
-                  ),
-                  style: FlutterFlowTheme.of(context).bodyMedium,
-                ),
-              ],
+          Expanded(
+            child: StreamBuilder<List<RequestsRecord>>(
+              stream: queryRequestsRecord(),
+              builder: (context, snapshot) {
+                // Customize what your widget looks like when it's loading.
+                if (!snapshot.hasData) {
+                  return Center(
+                    child: SizedBox(
+                      width: 50.0,
+                      height: 50.0,
+                      child: CircularProgressIndicator(
+                        valueColor: AlwaysStoppedAnimation<Color>(
+                          FlutterFlowTheme.of(context).primary,
+                        ),
+                      ),
+                    ),
+                  );
+                }
+                List<RequestsRecord> listViewRequestsRecordList =
+                    snapshot.data!;
+                return ListView.builder(
+                  padding: EdgeInsets.zero,
+                  scrollDirection: Axis.vertical,
+                  itemCount: listViewRequestsRecordList.length,
+                  itemBuilder: (context, listViewIndex) {
+                    final listViewRequestsRecord =
+                        listViewRequestsRecordList[listViewIndex];
+                    return Container(
+                      width: 100.0,
+                      height: 90.0,
+                      decoration: BoxDecoration(
+                        color: FlutterFlowTheme.of(context).secondaryBackground,
+                      ),
+                      child: InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onDoubleTap: () async {},
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Text(
+                              listViewRequestsRecord.tipoSoftware,
+                              style: FlutterFlowTheme.of(context).bodyMedium,
+                            ),
+                            Text(
+                              listViewRequestsRecord.servidor,
+                              style: FlutterFlowTheme.of(context).bodyMedium,
+                            ),
+                            Text(
+                              listViewRequestsRecord.tipoUso,
+                              style: FlutterFlowTheme.of(context).bodyMedium,
+                            ),
+                            Column(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.end,
+                              children: [
+                                Text(
+                                  listViewRequestsRecord.baseDatos,
+                                  style:
+                                      FlutterFlowTheme.of(context).bodyMedium,
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                    );
+                  },
+                );
+              },
             ),
           ),
         ],

@@ -229,7 +229,7 @@ class _HomePageAdminWidgetState extends State<HomePageAdminWidget> {
                             child: Align(
                               alignment: AlignmentDirectional(0.00, 0.00),
                               child: Text(
-                                'Servicios',
+                                'Servicios Solicitados',
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
@@ -258,76 +258,6 @@ class _HomePageAdminWidgetState extends State<HomePageAdminWidget> {
                                     alignment: AlignmentDirectional(0.00, 0.00),
                                     child: Icon(
                                       Icons.home_repair_service,
-                                      color:
-                                          FlutterFlowTheme.of(context).tertiary,
-                                      size: 40.0,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding:
-                      EdgeInsetsDirectional.fromSTEB(15.0, 15.0, 15.0, 15.0),
-                  child: Container(
-                    width: 100.0,
-                    height: 100.0,
-                    decoration: BoxDecoration(
-                      color: FlutterFlowTheme.of(context).secondaryBackground,
-                      boxShadow: [
-                        BoxShadow(
-                          blurRadius: 4.0,
-                          color: Color(0x33000000),
-                          offset: Offset(0.0, 2.0),
-                        )
-                      ],
-                    ),
-                    child: Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Expanded(
-                            child: Align(
-                              alignment: AlignmentDirectional(0.00, 0.00),
-                              child: Text(
-                                'Cotización',
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: 'Urbanist',
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondary,
-                                      fontSize: 20.0,
-                                    ),
-                              ),
-                            ),
-                          ),
-                          Expanded(
-                            child: Align(
-                              alignment: AlignmentDirectional(0.00, 0.00),
-                              child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    5.0, 5.0, 5.0, 5.0),
-                                child: Container(
-                                  width: 100.0,
-                                  height: 100.0,
-                                  decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context).info,
-                                    shape: BoxShape.circle,
-                                  ),
-                                  child: Align(
-                                    alignment: AlignmentDirectional(0.00, 0.00),
-                                    child: Icon(
-                                      Icons.monetization_on_outlined,
                                       color:
                                           FlutterFlowTheme.of(context).tertiary,
                                       size: 40.0,
@@ -405,76 +335,6 @@ class _HomePageAdminWidgetState extends State<HomePageAdminWidget> {
                                     alignment: AlignmentDirectional(0.00, 0.00),
                                     child: Icon(
                                       Icons.history_sharp,
-                                      color:
-                                          FlutterFlowTheme.of(context).tertiary,
-                                      size: 40.0,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding:
-                      EdgeInsetsDirectional.fromSTEB(15.0, 15.0, 15.0, 15.0),
-                  child: Container(
-                    width: 100.0,
-                    height: 100.0,
-                    decoration: BoxDecoration(
-                      color: FlutterFlowTheme.of(context).secondaryBackground,
-                      boxShadow: [
-                        BoxShadow(
-                          blurRadius: 4.0,
-                          color: Color(0x33000000),
-                          offset: Offset(0.0, 2.0),
-                        )
-                      ],
-                    ),
-                    child: Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Expanded(
-                            child: Align(
-                              alignment: AlignmentDirectional(0.00, 0.00),
-                              child: Text(
-                                'Conozcanos',
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: 'Urbanist',
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondary,
-                                      fontSize: 20.0,
-                                    ),
-                              ),
-                            ),
-                          ),
-                          Expanded(
-                            child: Align(
-                              alignment: AlignmentDirectional(0.00, 0.00),
-                              child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    5.0, 5.0, 5.0, 5.0),
-                                child: Container(
-                                  width: 100.0,
-                                  height: 100.0,
-                                  decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context).info,
-                                    shape: BoxShape.circle,
-                                  ),
-                                  child: Align(
-                                    alignment: AlignmentDirectional(0.00, 0.00),
-                                    child: Icon(
-                                      Icons.device_unknown,
                                       color:
                                           FlutterFlowTheme.of(context).tertiary,
                                       size: 40.0,

@@ -12,10 +12,6 @@ import '/backend/backend.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import '/auth/firebase_auth/auth_util.dart';
 
-int likes(UserPostsRecord? post) {
-  return post!.likes!.length;
-}
-
 bool hasUploadedMedia(String? mediaPath) {
   return mediaPath != null && mediaPath.isNotEmpty;
 }

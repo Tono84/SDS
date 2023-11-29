@@ -2,12 +2,14 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_count_controller.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
+import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'solicitud_i_m_widget.dart' show SolicitudIMWidget;
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -27,6 +29,7 @@ class SolicitudIMModel extends FlutterFlowModel<SolicitudIMWidget> {
   // State field(s) for ddEdificacion widget.
   String? ddEdificacionValue;
   FormFieldController<String>? ddEdificacionValueController;
+  DateTime? datePicked;
 
   /// Initialization and disposal methods.
 

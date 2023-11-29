@@ -65,7 +65,7 @@ class _CreateModalWidgetState extends State<CreateModalWidget> {
               highlightColor: Colors.transparent,
               onTap: () async {
                 context.pushNamed(
-                  'createStory',
+                  'CalificarServicio',
                   extra: <String, dynamic>{
                     kTransitionInfoKey: TransitionInfo(
                       hasTransition: true,

@@ -293,53 +293,62 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                         )
                       ],
                     ),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Expanded(
-                          child: Align(
-                            alignment: AlignmentDirectional(0.00, 0.00),
-                            child: Text(
-                              'Cotización',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    fontFamily: 'Urbanist',
-                                    color:
-                                        FlutterFlowTheme.of(context).secondary,
-                                    fontSize: 20.0,
-                                  ),
+                    child: InkWell(
+                      splashColor: Colors.transparent,
+                      focusColor: Colors.transparent,
+                      hoverColor: Colors.transparent,
+                      highlightColor: Colors.transparent,
+                      onTap: () async {
+                        context.pushNamed('pInvoice');
+                      },
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Expanded(
+                            child: Align(
+                              alignment: AlignmentDirectional(0.00, 0.00),
+                              child: Text(
+                                'Cotización',
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Urbanist',
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondary,
+                                      fontSize: 20.0,
+                                    ),
+                              ),
                             ),
                           ),
-                        ),
-                        Expanded(
-                          child: Align(
-                            alignment: AlignmentDirectional(0.00, 0.00),
-                            child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  5.0, 5.0, 5.0, 5.0),
-                              child: Container(
-                                width: 100.0,
-                                height: 100.0,
-                                decoration: BoxDecoration(
-                                  color: FlutterFlowTheme.of(context).info,
-                                  shape: BoxShape.circle,
-                                ),
-                                child: Align(
-                                  alignment: AlignmentDirectional(0.00, 0.00),
-                                  child: Icon(
-                                    Icons.monetization_on_outlined,
-                                    color:
-                                        FlutterFlowTheme.of(context).tertiary,
-                                    size: 40.0,
+                          Expanded(
+                            child: Align(
+                              alignment: AlignmentDirectional(0.00, 0.00),
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    5.0, 5.0, 5.0, 5.0),
+                                child: Container(
+                                  width: 100.0,
+                                  height: 100.0,
+                                  decoration: BoxDecoration(
+                                    color: FlutterFlowTheme.of(context).info,
+                                    shape: BoxShape.circle,
+                                  ),
+                                  child: Align(
+                                    alignment: AlignmentDirectional(0.00, 0.00),
+                                    child: Icon(
+                                      Icons.monetization_on_outlined,
+                                      color:
+                                          FlutterFlowTheme.of(context).tertiary,
+                                      size: 40.0,
+                                    ),
                                   ),
                                 ),
                               ),
                             ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
                 ),
@@ -352,7 +361,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                     hoverColor: Colors.transparent,
                     highlightColor: Colors.transparent,
                     onTap: () async {
-                      context.pushNamed('HistorialClieCopy');
+                      context.pushNamed('HistorialCliente');
                     },
                     child: Container(
                       width: 100.0,
@@ -501,6 +510,31 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                   ),
                 ),
               ],
+            ),
+          ),
+          Padding(
+            padding: EdgeInsetsDirectional.fromSTEB(35.0, 35.0, 35.0, 35.0),
+            child: FFButtonWidget(
+              onPressed: () async {
+                context.pushNamed('CalificarServicio');
+              },
+              text: 'Calificar servicio',
+              options: FFButtonOptions(
+                height: 40.0,
+                padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                color: Color(0xFF1C4494),
+                textStyle: FlutterFlowTheme.of(context).titleSmall.override(
+                      fontFamily: 'Urbanist',
+                      color: Colors.white,
+                    ),
+                elevation: 3.0,
+                borderSide: BorderSide(
+                  color: Colors.transparent,
+                  width: 1.0,
+                ),
+                borderRadius: BorderRadius.circular(8.0),
+              ),
             ),
           ),
         ],

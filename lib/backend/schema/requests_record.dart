@@ -96,6 +96,16 @@ class RequestsRecord extends FirestoreRecord {
   String get tipoConsultoria => _tipoConsultoria ?? '';
   bool hasTipoConsultoria() => _tipoConsultoria != null;
 
+  // "estado" field.
+  String? _estado;
+  String get estado => _estado ?? '';
+  bool hasEstado() => _estado != null;
+
+  // "diaRecoleccion" field.
+  DateTime? _diaRecoleccion;
+  DateTime? get diaRecoleccion => _diaRecoleccion;
+  bool hasDiaRecoleccion() => _diaRecoleccion != null;
+
   void _initializeFields() {
     _so = snapshotData['so'] as String?;
     _marca = snapshotData['marca'] as String?;
@@ -113,6 +123,8 @@ class RequestsRecord extends FirestoreRecord {
     _baseDatos = snapshotData['base_datos'] as String?;
     _servidor = snapshotData['servidor'] as String?;
     _tipoConsultoria = snapshotData['tipoConsultoria'] as String?;
+    _estado = snapshotData['estado'] as String?;
+    _diaRecoleccion = snapshotData['diaRecoleccion'] as DateTime?;
   }
 
   static CollectionReference get collection =>
@@ -166,6 +178,8 @@ Map<String, dynamic> createRequestsRecordData({
   String? baseDatos,
   String? servidor,
   String? tipoConsultoria,
+  String? estado,
+  DateTime? diaRecoleccion,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -185,6 +199,8 @@ Map<String, dynamic> createRequestsRecordData({
       'base_datos': baseDatos,
       'servidor': servidor,
       'tipoConsultoria': tipoConsultoria,
+      'estado': estado,
+      'diaRecoleccion': diaRecoleccion,
     }.withoutNulls,
   );
 
@@ -211,7 +227,9 @@ class RequestsRecordDocumentEquality implements Equality<RequestsRecord> {
         e1?.tipoSoftware == e2?.tipoSoftware &&
         e1?.baseDatos == e2?.baseDatos &&
         e1?.servidor == e2?.servidor &&
-        e1?.tipoConsultoria == e2?.tipoConsultoria;
+        e1?.tipoConsultoria == e2?.tipoConsultoria &&
+        e1?.estado == e2?.estado &&
+        e1?.diaRecoleccion == e2?.diaRecoleccion;
   }
 
   @override
@@ -231,7 +249,9 @@ class RequestsRecordDocumentEquality implements Equality<RequestsRecord> {
         e?.tipoSoftware,
         e?.baseDatos,
         e?.servidor,
-        e?.tipoConsultoria
+        e?.tipoConsultoria,
+        e?.estado,
+        e?.diaRecoleccion
       ]);
 
   @override

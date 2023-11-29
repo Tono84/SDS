@@ -16,6 +16,7 @@ import 'schema/chats_record.dart';
 import 'schema/chat_messages_record.dart';
 import 'schema/requests_record.dart';
 import 'schema/historial_cliente_record.dart';
+import 'schema/ratings_record.dart';
 
 export 'dart:async' show StreamSubscription;
 export 'package:cloud_firestore/cloud_firestore.dart';
@@ -34,6 +35,7 @@ export 'schema/chats_record.dart';
 export 'schema/chat_messages_record.dart';
 export 'schema/requests_record.dart';
 export 'schema/historial_cliente_record.dart';
+export 'schema/ratings_record.dart';
 
 /// Functions to query UserPostsRecords (as a Stream and as a Future).
 Future<int> queryUserPostsRecordCount({
@@ -437,6 +439,43 @@ Future<List<HistorialClienteRecord>> queryHistorialClienteRecordOnce({
     queryCollectionOnce(
       HistorialClienteRecord.collection,
       HistorialClienteRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+/// Functions to query RatingsRecords (as a Stream and as a Future).
+Future<int> queryRatingsRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      RatingsRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<RatingsRecord>> queryRatingsRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      RatingsRecord.collection,
+      RatingsRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<RatingsRecord>> queryRatingsRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      RatingsRecord.collection,
+      RatingsRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,

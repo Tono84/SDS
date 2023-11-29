@@ -118,9 +118,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => SolicitudSTWidget(),
         ),
         FFRoute(
-          name: 'createStory',
-          path: '/createStory',
-          builder: (context, params) => CreateStoryWidget(),
+          name: 'CalificarServicio',
+          path: '/calificarServicio',
+          builder: (context, params) => CalificarServicioWidget(),
         ),
         FFRoute(
           name: 'createPost',
@@ -151,16 +151,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'changePassword',
           path: '/changePassword',
           builder: (context, params) => ChangePasswordWidget(),
-        ),
-        FFRoute(
-          name: 'viewProfilePageOther',
-          path: '/viewProfilePageOther',
-          asyncParams: {
-            'userDetails': getDoc(['users'], UsersRecord.fromSnapshot),
-          },
-          builder: (context, params) => ViewProfilePageOtherWidget(
-            userDetails: params.getParam('userDetails', ParamType.Document),
-          ),
         ),
         FFRoute(
           name: 'createDogProfile_New',
@@ -232,9 +222,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => HiWidget(),
         ),
         FFRoute(
-          name: 'HistorialClieCopy',
+          name: 'HistorialCliente',
           path: '/HistoriaClie',
-          builder: (context, params) => HistorialClieCopyWidget(),
+          builder: (context, params) => HistorialClienteWidget(),
         ),
         FFRoute(
           name: 'Solicitud_IM',
@@ -250,6 +240,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'Solicitud_CTI',
           path: '/solicitudCTI',
           builder: (context, params) => SolicitudCTIWidget(),
+        ),
+        FFRoute(
+          name: 'pInvoice',
+          path: '/pInvoice',
+          builder: (context, params) => PInvoiceWidget(),
+        ),
+        FFRoute(
+          name: 'blog',
+          path: '/Blog',
+          builder: (context, params) => BlogWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],
@@ -432,13 +432,9 @@ class FFRoute {
           final child = appStateNotifier.loading
               ? Container(
                   color: Colors.transparent,
-                  child: Center(
-                    child: Image.asset(
-                      'assets/images/Sniff_0.0_Splash@2x.png',
-                      width: MediaQuery.sizeOf(context).width * 1.0,
-                      height: MediaQuery.sizeOf(context).height * 1.0,
-                      fit: BoxFit.cover,
-                    ),
+                  child: Image.asset(
+                    'assets/images/Screenshot_38.png',
+                    fit: BoxFit.cover,
                   ),
                 )
               : page;

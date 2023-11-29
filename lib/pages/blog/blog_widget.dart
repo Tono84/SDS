@@ -1,4 +1,3 @@
-import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -7,26 +6,25 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'historial_clie_copy_model.dart';
-export 'historial_clie_copy_model.dart';
+import 'blog_model.dart';
+export 'blog_model.dart';
 
-class HistorialClieCopyWidget extends StatefulWidget {
-  const HistorialClieCopyWidget({Key? key}) : super(key: key);
+class BlogWidget extends StatefulWidget {
+  const BlogWidget({Key? key}) : super(key: key);
 
   @override
-  _HistorialClieCopyWidgetState createState() =>
-      _HistorialClieCopyWidgetState();
+  _BlogWidgetState createState() => _BlogWidgetState();
 }
 
-class _HistorialClieCopyWidgetState extends State<HistorialClieCopyWidget> {
-  late HistorialClieCopyModel _model;
+class _BlogWidgetState extends State<BlogWidget> {
+  late BlogModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => HistorialClieCopyModel());
+    _model = createModel(context, () => BlogModel());
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -72,7 +70,7 @@ class _HistorialClieCopyWidgetState extends State<HistorialClieCopyWidget> {
         title: Align(
           alignment: AlignmentDirectional(0.00, 0.00),
           child: Text(
-            'Historial',
+            'SOLUCIONES DIGITALES SOLO',
             style: FlutterFlowTheme.of(context).bodyMedium.override(
                   fontFamily: 'Urbanist',
                   fontSize: 20.0,
@@ -179,92 +177,55 @@ class _HistorialClieCopyWidgetState extends State<HistorialClieCopyWidget> {
               ],
             ),
           ),
-          Expanded(
-            child: StreamBuilder<List<RequestsRecord>>(
-              stream: queryRequestsRecord(),
-              builder: (context, snapshot) {
-                // Customize what your widget looks like when it's loading.
-                if (!snapshot.hasData) {
-                  return Center(
-                    child: SizedBox(
-                      width: 50.0,
-                      height: 50.0,
-                      child: CircularProgressIndicator(
-                        valueColor: AlwaysStoppedAnimation<Color>(
-                          FlutterFlowTheme.of(context).primary,
-                        ),
+          Row(
+            mainAxisSize: MainAxisSize.max,
+            children: [
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(15.0, 15.0, 0.0, 0.0),
+                child: Text(
+                  'Que es software? sistema formal de un sistema informá\ntico, que comprende el conjunto de los componentes ló\ngicos necesarios que hace posible la realización de tare\nas específicas, en contraposición a los componentes físi\ncos que son llamados hardware. La interacción entre el \nsoftware y el hardware hace operativo un ordenador \n(u otro dispositivo), es decir, el software envía instru\ncciones que el hardware ejecuta, haciendo posible su \nfuncionamiento.',
+                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                        fontFamily: 'Urbanist',
+                        fontSize: 15.0,
                       ),
-                    ),
-                  );
-                }
-                List<RequestsRecord> listViewRequestsRecordList =
-                    snapshot.data!;
-                return ListView.builder(
-                  padding: EdgeInsets.zero,
-                  scrollDirection: Axis.vertical,
-                  itemCount: listViewRequestsRecordList.length,
-                  itemBuilder: (context, listViewIndex) {
-                    final listViewRequestsRecord =
-                        listViewRequestsRecordList[listViewIndex];
-                    return Container(
-                      width: 100.0,
-                      height: 90.0,
-                      decoration: BoxDecoration(
-                        color: FlutterFlowTheme.of(context).secondaryBackground,
+                ),
+              ),
+            ],
+          ),
+          ClipRRect(
+            borderRadius: BorderRadius.circular(8.0),
+            child: Image.asset(
+              'assets/images/logo-windows-13503.png',
+              width: 154.0,
+              height: 109.0,
+              fit: BoxFit.cover,
+            ),
+          ),
+          Row(
+            mainAxisSize: MainAxisSize.max,
+            children: [
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(15.0, 15.0, 0.0, 0.0),
+                child: Text(
+                  'Que es hardware?se refiere a las partes físicas, tangi\nbles, de un sistema informático, sus componentes \neléctricos, electrónicos y electromecánicos. Los cables, \nasí como los muebles o cajas, los periféricos de todo\n tipo, y cualquier otro elemento físico involucrado,\n componen el hardware o soporte físico; contraria\nmente, el soporte lógico e intangible es el llamado \nsoftware.',
+                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                        fontFamily: 'Urbanist',
+                        fontSize: 15.0,
                       ),
-                      child: InkWell(
-                        splashColor: Colors.transparent,
-                        focusColor: Colors.transparent,
-                        hoverColor: Colors.transparent,
-                        highlightColor: Colors.transparent,
-                        onTap: () async {},
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            ClipRRect(
-                              borderRadius: BorderRadius.circular(8.0),
-                              child: Image.network(
-                                'https://images.unsplash.com/photo-1625842268584-8f3296236761?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHw4fHxwY3xlbnwwfHx8fDE2OTk5NzgwMjd8MA&ixlib=rb-4.0.3&q=80&w=1080',
-                                width: 124.0,
-                                height: 114.0,
-                                fit: BoxFit.fill,
-                                alignment: Alignment(-1.00, 0.00),
-                              ),
-                            ),
-                            Text(
-                              listViewRequestsRecord.marca,
-                              style: FlutterFlowTheme.of(context).bodyMedium,
-                            ),
-                            Column(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.end,
-                              children: [
-                                Text(
-                                  listViewRequestsRecord.tipoComputadora,
-                                  style:
-                                      FlutterFlowTheme.of(context).bodyMedium,
-                                ),
-                                Text(
-                                  listViewRequestsRecord.tipoSoporte,
-                                  style:
-                                      FlutterFlowTheme.of(context).bodyMedium,
-                                ),
-                                Text(
-                                  listViewRequestsRecord.descripcion,
-                                  style:
-                                      FlutterFlowTheme.of(context).bodyMedium,
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ),
-                    );
-                  },
-                );
-              },
+                ),
+              ),
+            ],
+          ),
+          Padding(
+            padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(8.0),
+              child: Image.asset(
+                'assets/images/hardware.jpg',
+                width: 154.0,
+                height: 109.0,
+                fit: BoxFit.cover,
+              ),
             ),
           ),
         ],

@@ -1,9 +1,11 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
+import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -88,6 +90,35 @@ class _SolicitudSTWidgetState extends State<SolicitudSTWidget> {
         return Scaffold(
           key: scaffoldKey,
           backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
+          appBar: AppBar(
+            backgroundColor: Color(0xFF030000),
+            automaticallyImplyLeading: false,
+            leading: FlutterFlowIconButton(
+              borderColor: Colors.transparent,
+              borderRadius: 30.0,
+              borderWidth: 1.0,
+              buttonSize: 60.0,
+              icon: Icon(
+                Icons.arrow_back_rounded,
+                color: Colors.white,
+                size: 30.0,
+              ),
+              onPressed: () async {
+                context.safePop();
+              },
+            ),
+            title: Text(
+              'Soporte Técnico',
+              style: FlutterFlowTheme.of(context).headlineMedium.override(
+                    fontFamily: 'Urbanist',
+                    color: Colors.white,
+                    fontSize: 22.0,
+                  ),
+            ),
+            actions: [],
+            centerTitle: true,
+            elevation: 2.0,
+          ),
           body: SafeArea(
             top: true,
             child: Form(
@@ -455,77 +486,264 @@ class _SolicitudSTWidgetState extends State<SolicitudSTWidget> {
                       ],
                     ),
                   ),
-                  Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(15.0, 15.0, 15.0, 15.0),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        FFButtonWidget(
-                          onPressed: () async {
-                            if (_model.formKey.currentState == null ||
-                                !_model.formKey.currentState!.validate()) {
-                              return;
-                            }
+                  Expanded(
+                    child: Container(
+                      width: 458.0,
+                      height: 100.0,
+                      decoration: BoxDecoration(
+                        color: FlutterFlowTheme.of(context).secondaryBackground,
+                      ),
+                      child: SingleChildScrollView(
+                        child: Column(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Align(
+                              alignment: AlignmentDirectional(0.00, 0.00),
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    15.0, 15.0, 15.0, 15.0),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Expanded(
+                                      child: FFButtonWidget(
+                                        onPressed: () async {
+                                          final _datePickedDate =
+                                              await showDatePicker(
+                                            context: context,
+                                            initialDate: getCurrentTimestamp,
+                                            firstDate: getCurrentTimestamp,
+                                            lastDate: DateTime(2050),
+                                            builder: (context, child) {
+                                              return wrapInMaterialDatePickerTheme(
+                                                context,
+                                                child!,
+                                                headerBackgroundColor:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primary,
+                                                headerForegroundColor:
+                                                    FlutterFlowTheme.of(context)
+                                                        .info,
+                                                headerTextStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .headlineLarge
+                                                        .override(
+                                                          fontFamily: 'Outfit',
+                                                          fontSize: 32.0,
+                                                          fontWeight:
+                                                              FontWeight.w600,
+                                                        ),
+                                                pickerBackgroundColor:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryBackground,
+                                                pickerForegroundColor:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryText,
+                                                selectedDateTimeBackgroundColor:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primary,
+                                                selectedDateTimeForegroundColor:
+                                                    FlutterFlowTheme.of(context)
+                                                        .info,
+                                                actionButtonForegroundColor:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryText,
+                                                iconSize: 24.0,
+                                              );
+                                            },
+                                          );
 
-                            await RequestsRecord.collection
-                                .doc()
-                                .set(createRequestsRecordData(
-                                  so: _model.txtSoController.text,
-                                  marca: _model.txtMarcaController.text,
-                                  tipoComputadora:
-                                      _model.txtCompuController.text,
-                                  tipoSoporte: _model.txtTipoSController.text,
-                                  descripcion: _model.txtDescripController.text,
-                                ));
-                            await showDialog(
-                              context: context,
-                              builder: (alertDialogContext) {
-                                return AlertDialog(
-                                  content:
-                                      Text('Solicitud enviada correctamente'),
-                                  actions: [
-                                    TextButton(
-                                      onPressed: () =>
-                                          Navigator.pop(alertDialogContext),
-                                      child: Text('Ok'),
+                                          TimeOfDay? _datePickedTime;
+                                          if (_datePickedDate != null) {
+                                            _datePickedTime =
+                                                await showTimePicker(
+                                              context: context,
+                                              initialTime:
+                                                  TimeOfDay.fromDateTime(
+                                                      getCurrentTimestamp),
+                                              builder: (context, child) {
+                                                return wrapInMaterialTimePickerTheme(
+                                                  context,
+                                                  child!,
+                                                  headerBackgroundColor:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .primary,
+                                                  headerForegroundColor:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .info,
+                                                  headerTextStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .headlineLarge
+                                                          .override(
+                                                            fontFamily:
+                                                                'Outfit',
+                                                            fontSize: 32.0,
+                                                            fontWeight:
+                                                                FontWeight.w600,
+                                                          ),
+                                                  pickerBackgroundColor:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .secondaryBackground,
+                                                  pickerForegroundColor:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .primaryText,
+                                                  selectedDateTimeBackgroundColor:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .primary,
+                                                  selectedDateTimeForegroundColor:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .info,
+                                                  actionButtonForegroundColor:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .primaryText,
+                                                  iconSize: 24.0,
+                                                );
+                                              },
+                                            );
+                                          }
+
+                                          if (_datePickedDate != null &&
+                                              _datePickedTime != null) {
+                                            safeSetState(() {
+                                              _model.datePicked = DateTime(
+                                                _datePickedDate.year,
+                                                _datePickedDate.month,
+                                                _datePickedDate.day,
+                                                _datePickedTime!.hour,
+                                                _datePickedTime.minute,
+                                              );
+                                            });
+                                          }
+                                        },
+                                        text:
+                                            'SELECCIONES DÍA Y HORA DE RECOLECCIÓN',
+                                        options: FFButtonOptions(
+                                          height: 40.0,
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  24.0, 0.0, 24.0, 0.0),
+                                          iconPadding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 0.0, 0.0, 0.0),
+                                          color: FlutterFlowTheme.of(context)
+                                              .primary,
+                                          textStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .titleSmall
+                                                  .override(
+                                                    fontFamily: 'Urbanist',
+                                                    color: Colors.white,
+                                                  ),
+                                          elevation: 3.0,
+                                          borderSide: BorderSide(
+                                            color: Colors.transparent,
+                                            width: 1.0,
+                                          ),
+                                          borderRadius:
+                                              BorderRadius.circular(8.0),
+                                        ),
+                                      ),
                                     ),
                                   ],
-                                );
-                              },
-                            );
-                            setState(() {
-                              _model.txtSoController?.clear();
-                              _model.txtMarcaController?.clear();
-                              _model.txtCompuController?.clear();
-                              _model.txtTipoSController?.clear();
-                              _model.txtDescripController?.clear();
-                            });
-                          },
-                          text: 'Enviar',
-                          options: FFButtonOptions(
-                            height: 40.0,
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                24.0, 0.0, 24.0, 0.0),
-                            iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 0.0, 0.0),
-                            color: Color(0xFF2BAFBF),
-                            textStyle: FlutterFlowTheme.of(context)
-                                .titleSmall
-                                .override(
-                                  fontFamily: 'Urbanist',
-                                  color: Colors.white,
                                 ),
-                            elevation: 3.0,
-                            borderSide: BorderSide(
-                              color: Colors.transparent,
-                              width: 1.0,
+                              ),
                             ),
-                            borderRadius: BorderRadius.circular(8.0),
-                          ),
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  15.0, 15.0, 15.0, 15.0),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  FFButtonWidget(
+                                    onPressed: () async {
+                                      if (_model.formKey.currentState == null ||
+                                          !_model.formKey.currentState!
+                                              .validate()) {
+                                        return;
+                                      }
+
+                                      await RequestsRecord.collection
+                                          .doc()
+                                          .set(createRequestsRecordData(
+                                            so: _model.txtSoController.text,
+                                            marca:
+                                                _model.txtMarcaController.text,
+                                            tipoComputadora:
+                                                _model.txtCompuController.text,
+                                            tipoSoporte:
+                                                _model.txtTipoSController.text,
+                                            descripcion: _model
+                                                .txtDescripController.text,
+                                            estado: 'Pendiente',
+                                            tipoRequest: 'Soporte Técnico',
+                                            diaRecoleccion: _model.datePicked,
+                                          ));
+                                      await showDialog(
+                                        context: context,
+                                        builder: (alertDialogContext) {
+                                          return AlertDialog(
+                                            content: Text(
+                                                'Solicitud enviada correctamente'),
+                                            actions: [
+                                              TextButton(
+                                                onPressed: () => Navigator.pop(
+                                                    alertDialogContext),
+                                                child: Text('Ok'),
+                                              ),
+                                            ],
+                                          );
+                                        },
+                                      );
+                                      setState(() {
+                                        _model.txtSoController?.clear();
+                                        _model.txtMarcaController?.clear();
+                                        _model.txtCompuController?.clear();
+                                        _model.txtTipoSController?.clear();
+                                        _model.txtDescripController?.clear();
+                                      });
+
+                                      context.pushNamed('services');
+                                    },
+                                    text: 'Enviar',
+                                    options: FFButtonOptions(
+                                      height: 40.0,
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          24.0, 0.0, 24.0, 0.0),
+                                      iconPadding:
+                                          EdgeInsetsDirectional.fromSTEB(
+                                              0.0, 0.0, 0.0, 0.0),
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondary,
+                                      textStyle: FlutterFlowTheme.of(context)
+                                          .titleSmall
+                                          .override(
+                                            fontFamily: 'Urbanist',
+                                            color: Colors.white,
+                                          ),
+                                      elevation: 3.0,
+                                      borderSide: BorderSide(
+                                        color: Colors.transparent,
+                                        width: 1.0,
+                                      ),
+                                      borderRadius: BorderRadius.circular(8.0),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
                         ),
-                      ],
+                      ),
                     ),
                   ),
                 ],
