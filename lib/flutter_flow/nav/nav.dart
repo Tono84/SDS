@@ -214,17 +214,15 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => DetalledeHistorialWidget(
             detallehistorial:
                 params.getParam('detallehistorial', ParamType.Document),
+            email: params.getParam('email', ParamType.String),
+            estado: params.getParam('estado', ParamType.String),
+            fecha: params.getParam('fecha', ParamType.DateTime),
           ),
         ),
         FFRoute(
           name: 'Hi',
           path: '/hi',
           builder: (context, params) => HiWidget(),
-        ),
-        FFRoute(
-          name: 'HistorialCliente',
-          path: '/HistoriaClie',
-          builder: (context, params) => HistorialClienteWidget(),
         ),
         FFRoute(
           name: 'Solicitud_IM',
@@ -250,6 +248,41 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'blog',
           path: '/Blog',
           builder: (context, params) => BlogWidget(),
+        ),
+        FFRoute(
+          name: 'terms',
+          path: '/terms',
+          builder: (context, params) => TermsWidget(),
+        ),
+        FFRoute(
+          name: 'HistorialCl',
+          path: '/historialCl',
+          builder: (context, params) => HistorialClWidget(),
+        ),
+        FFRoute(
+          name: 'HistorialAdmin',
+          path: '/historialAdmin',
+          builder: (context, params) => HistorialAdminWidget(),
+        ),
+        FFRoute(
+          name: 'activeServicesAdmin',
+          path: '/activeServicesAdmin',
+          asyncParams: {
+            'detallehistorial':
+                getDoc(['Requests'], RequestsRecord.fromSnapshot),
+          },
+          builder: (context, params) => ActiveServicesAdminWidget(
+            detallehistorial:
+                params.getParam('detallehistorial', ParamType.Document),
+            email: params.getParam('email', ParamType.String),
+            estado: params.getParam('estado', ParamType.String),
+            fecha: params.getParam('fecha', ParamType.DateTime),
+          ),
+        ),
+        FFRoute(
+          name: 'activeServices',
+          path: '/activeSerices',
+          builder: (context, params) => ActiveServicesWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],

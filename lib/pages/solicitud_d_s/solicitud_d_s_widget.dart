@@ -452,6 +452,7 @@ class _SolicitudDSWidgetState extends State<SolicitudDSWidget> {
                                 estado: 'pendiente',
                                 diaRecoleccion: _model.datePicked,
                                 tipoRequest: 'Desarrollo de Software',
+                                email: currentUserEmail,
                               ));
                           await showDialog(
                             context: context,

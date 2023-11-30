@@ -1,17 +1,21 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
+import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/flutter_flow/form_field_controller.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'detallede_historial_model.dart';
-export 'detallede_historial_model.dart';
+import 'active_services_admin_model.dart';
+export 'active_services_admin_model.dart';
 
-class DetalledeHistorialWidget extends StatefulWidget {
-  const DetalledeHistorialWidget({
+class ActiveServicesAdminWidget extends StatefulWidget {
+  const ActiveServicesAdminWidget({
     Key? key,
     required this.detallehistorial,
     required this.email,
@@ -25,19 +29,19 @@ class DetalledeHistorialWidget extends StatefulWidget {
   final DateTime? fecha;
 
   @override
-  _DetalledeHistorialWidgetState createState() =>
-      _DetalledeHistorialWidgetState();
+  _ActiveServicesAdminWidgetState createState() =>
+      _ActiveServicesAdminWidgetState();
 }
 
-class _DetalledeHistorialWidgetState extends State<DetalledeHistorialWidget> {
-  late DetalledeHistorialModel _model;
+class _ActiveServicesAdminWidgetState extends State<ActiveServicesAdminWidget> {
+  late ActiveServicesAdminModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => DetalledeHistorialModel());
+    _model = createModel(context, () => ActiveServicesAdminModel());
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -201,40 +205,118 @@ class _DetalledeHistorialWidgetState extends State<DetalledeHistorialWidget> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  valueOrDefault<String>(
-                    widget.detallehistorial?.usuario?.id,
-                    '0',
-                  ),
-                  style: FlutterFlowTheme.of(context).bodyMedium,
+                Row(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Text(
+                      valueOrDefault<String>(
+                        widget.detallehistorial?.email,
+                        'N/A',
+                      ),
+                      style: FlutterFlowTheme.of(context).bodyMedium,
+                    ),
+                  ],
                 ),
-                Text(
-                  valueOrDefault<String>(
-                    widget.detallehistorial?.marca,
-                    '0',
-                  ),
-                  style: FlutterFlowTheme.of(context).bodyMedium,
+                Row(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    FlutterFlowDropDown<String>(
+                      controller: _model.dropDownValueController ??=
+                          FormFieldController<String>(
+                        _model.dropDownValue ??= valueOrDefault<String>(
+                          widget.detallehistorial?.estado,
+                          'N/A',
+                        ),
+                      ),
+                      options: ['Pendiente', 'Completado'],
+                      onChanged: (val) =>
+                          setState(() => _model.dropDownValue = val),
+                      width: 300.0,
+                      height: 50.0,
+                      textStyle: FlutterFlowTheme.of(context).bodyMedium,
+                      hintText: 'Please select...',
+                      icon: Icon(
+                        Icons.keyboard_arrow_down_rounded,
+                        color: FlutterFlowTheme.of(context).secondaryText,
+                        size: 24.0,
+                      ),
+                      fillColor:
+                          FlutterFlowTheme.of(context).secondaryBackground,
+                      elevation: 2.0,
+                      borderColor: FlutterFlowTheme.of(context).alternate,
+                      borderWidth: 2.0,
+                      borderRadius: 8.0,
+                      margin:
+                          EdgeInsetsDirectional.fromSTEB(16.0, 4.0, 16.0, 4.0),
+                      hidesUnderline: true,
+                      isSearchable: false,
+                      isMultiSelect: false,
+                    ),
+                  ],
                 ),
-                Text(
-                  valueOrDefault<String>(
-                    widget.detallehistorial?.tipoSoporte,
-                    '0',
-                  ),
-                  style: FlutterFlowTheme.of(context).bodyMedium,
+                Row(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Text(
+                      valueOrDefault<String>(
+                        widget.detallehistorial?.diaRecoleccion?.toString(),
+                        'N/A',
+                      ),
+                      style: FlutterFlowTheme.of(context).bodyMedium,
+                    ),
+                  ],
                 ),
-                Text(
-                  valueOrDefault<String>(
-                    widget.detallehistorial?.tipoComputadora,
-                    '0',
-                  ),
-                  style: FlutterFlowTheme.of(context).bodyMedium,
-                ),
-                Text(
-                  valueOrDefault<String>(
-                    widget.detallehistorial?.descripcion,
-                    '0',
-                  ),
-                  style: FlutterFlowTheme.of(context).bodyMedium,
+                Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    FFButtonWidget(
+                      onPressed: () async {
+                        await widget.detallehistorial!.reference
+                            .update(createRequestsRecordData(
+                          estado: _model.dropDownValue,
+                        ));
+                        await showDialog(
+                          context: context,
+                          builder: (alertDialogContext) {
+                            return AlertDialog(
+                              title: Text('Atención'),
+                              content: Text('Estado Actualizado'),
+                              actions: [
+                                TextButton(
+                                  onPressed: () =>
+                                      Navigator.pop(alertDialogContext),
+                                  child: Text('Cerrar'),
+                                ),
+                              ],
+                            );
+                          },
+                        );
+
+                        context.pushNamed('activeServices');
+                      },
+                      text: 'Actualizar',
+                      options: FFButtonOptions(
+                        height: 40.0,
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            24.0, 0.0, 24.0, 0.0),
+                        iconPadding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                        color: FlutterFlowTheme.of(context).primary,
+                        textStyle:
+                            FlutterFlowTheme.of(context).titleSmall.override(
+                                  fontFamily: 'Urbanist',
+                                  color: Colors.white,
+                                ),
+                        elevation: 3.0,
+                        borderSide: BorderSide(
+                          color: Colors.transparent,
+                          width: 1.0,
+                        ),
+                        borderRadius: BorderRadius.circular(8.0),
+                      ),
+                    ),
+                  ],
                 ),
               ],
             ),

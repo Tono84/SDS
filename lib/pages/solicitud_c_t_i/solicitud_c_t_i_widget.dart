@@ -249,6 +249,7 @@ class _SolicitudCTIWidgetState extends State<SolicitudCTIWidget> {
                                 tipoRequest: 'Consultoria de TI',
                                 estado: 'Pendiente',
                                 diaRecoleccion: _model.datePicked,
+                                email: currentUserEmail,
                               ));
                           await showDialog(
                             context: context,

@@ -33,11 +33,17 @@ export '/pages/edit_user_profile_copy/edit_user_profile_copy_widget.dart'
 export '/pages/detallede_historial/detallede_historial_widget.dart'
     show DetalledeHistorialWidget;
 export '/pages/hi/hi_widget.dart' show HiWidget;
-export '/pages/historial_cliente/historial_cliente_widget.dart'
-    show HistorialClienteWidget;
 export '/pages/solicitud_i_m/solicitud_i_m_widget.dart' show SolicitudIMWidget;
 export '/pages/solicitud_d_s/solicitud_d_s_widget.dart' show SolicitudDSWidget;
 export '/pages/solicitud_c_t_i/solicitud_c_t_i_widget.dart'
     show SolicitudCTIWidget;
 export '/pages/p_invoice/p_invoice_widget.dart' show PInvoiceWidget;
 export '/pages/blog/blog_widget.dart' show BlogWidget;
+export '/pages/terms/terms_widget.dart' show TermsWidget;
+export '/pages/historial_cl/historial_cl_widget.dart' show HistorialClWidget;
+export '/pages/historial_admin/historial_admin_widget.dart'
+    show HistorialAdminWidget;
+export '/pages/active_services_admin/active_services_admin_widget.dart'
+    show ActiveServicesAdminWidget;
+export '/pages/active_services/active_services_widget.dart'
+    show ActiveServicesWidget;

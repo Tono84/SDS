@@ -687,6 +687,8 @@ class _SolicitudSTWidgetState extends State<SolicitudSTWidget> {
                                             estado: 'Pendiente',
                                             tipoRequest: 'Soporte Técnico',
                                             diaRecoleccion: _model.datePicked,
+                                            usuario: currentUserReference,
+                                            email: currentUserEmail,
                                           ));
                                       await showDialog(
                                         context: context,
