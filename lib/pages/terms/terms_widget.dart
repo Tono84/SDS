@@ -4,28 +4,27 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'know_us_model.dart';
-export 'know_us_model.dart';
+import 'terms_model.dart';
+export 'terms_model.dart';
 
-class KnowUsWidget extends StatefulWidget {
-  const KnowUsWidget({Key? key}) : super(key: key);
+class TermsWidget extends StatefulWidget {
+  const TermsWidget({Key? key}) : super(key: key);
 
   @override
-  _KnowUsWidgetState createState() => _KnowUsWidgetState();
+  _TermsWidgetState createState() => _TermsWidgetState();
 }
 
-class _KnowUsWidgetState extends State<KnowUsWidget> {
-  late KnowUsModel _model;
+class _TermsWidgetState extends State<TermsWidget> {
+  late TermsModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => KnowUsModel());
+    _model = createModel(context, () => TermsModel());
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -155,7 +154,7 @@ class _KnowUsWidgetState extends State<KnowUsWidget> {
                                         alignment:
                                             AlignmentDirectional(0.00, 0.00),
                                         child: Text(
-                                          'TECNOLOGIA SIMPLE',
+                                          'DESCARGO DE RESPONDABILIDAD Y LICENCIA DE SOFTWARE',
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
@@ -179,142 +178,72 @@ class _KnowUsWidgetState extends State<KnowUsWidget> {
             ),
           ),
           Expanded(
-            child: ListView(
-              padding: EdgeInsets.zero,
-              scrollDirection: Axis.vertical,
-              children: [
-                Padding(
-                  padding:
-                      EdgeInsetsDirectional.fromSTEB(15.0, 15.0, 15.0, 15.0),
-                  child: Container(
-                    width: 100.0,
-                    height: 321.0,
-                    decoration: BoxDecoration(
-                      color: FlutterFlowTheme.of(context).secondaryBackground,
-                      boxShadow: [
-                        BoxShadow(
-                          blurRadius: 4.0,
-                          color: Color(0x33000000),
-                          offset: Offset(0.0, 2.0),
-                        )
-                      ],
-                    ),
-                    child: Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Expanded(
-                            child: Align(
-                              alignment: AlignmentDirectional(0.00, 0.00),
-                              child: Text(
-                                'Misión',
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: 'Urbanist',
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondary,
-                                      fontSize: 20.0,
-                                    ),
-                              ),
-                            ),
-                          ),
-                          Expanded(
-                            child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 5.0, 0.0),
-                              child: Text(
-                                'Ser el socio confiable y experto en tecnología de nuestros clientes, proporcionando soluciones digitales de alta calidad que les ayuden a alcanzar el éxito en un mundo cada vez más digitalizado. Estamos dedicados a hacer realidad esta misión cada día en cada PYME y cada hogar, brindando servicios excepcionales y superando las expectativas de nuestros clientes.',
-                                textAlign: TextAlign.justify,
-                                style: FlutterFlowTheme.of(context).bodyMedium,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding:
-                      EdgeInsetsDirectional.fromSTEB(15.0, 15.0, 15.0, 15.0),
-                  child: Container(
-                    width: 100.0,
-                    height: 350.0,
-                    decoration: BoxDecoration(
-                      color: FlutterFlowTheme.of(context).secondaryBackground,
-                      boxShadow: [
-                        BoxShadow(
-                          blurRadius: 4.0,
-                          color: Color(0x33000000),
-                          offset: Offset(0.0, 2.0),
-                        )
-                      ],
-                    ),
-                    child: Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Expanded(
-                            child: Align(
-                              alignment: AlignmentDirectional(0.00, 0.00),
-                              child: Text(
-                                'Visión',
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: 'Urbanist',
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondary,
-                                      fontSize: 20.0,
-                                    ),
-                              ),
-                            ),
-                          ),
-                          Expanded(
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  Row(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Expanded(
+                        child: Align(
+                          alignment: AlignmentDirectional(0.00, 0.00),
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 5.0, 0.0),
                             child: Text(
-                              'Ser el socio preferido de pymes y hogares en su viaje hacia la transformación digital, proporcionando soluciones tecnológicas accesibles y efectivas que mejoren sus operaciones comerciales y su vida cotidiana. Queremos ser reconocidos por nuestro compromiso con la satisfacción del cliente y por el impacto positivo que generamos en las comunidades que servimos.',
+                              'Descargo de responsabilidad de Propiedad y Licencia de Software\n\nEste sitio web y cualquier software desarrollado por Soluciones Digitales Solo están protegidos por las leyes de derechos de autor y propiedad intelectual. Todos los derechos sobre el software y los productos desarrollados por Soluciones Digitales Solo están reservados.\n\nPropiedad del Software:\n\nTodo el software desarrollado por Soluciones Digitales Solo, incluyendo pero no limitado a aplicaciones, programas, código fuente y productos relacionados, es propiedad exclusiva de Soluciones Digitales Solo, a menos que se especifique lo contrario. Está protegido por las leyes de derechos de autor y otras leyes aplicables.\n\nLicencia Comercial:\n\nCualquier software desarrollado por Soluciones Digitales Solo se distribuye bajo una licencia comercial. El uso, la copia, la distribución o la modificación del software están permitidos solo de acuerdo con los términos y condiciones establecidos en la licencia comercial correspondiente. Es responsabilidad del usuario leer y comprender los términos de la licencia antes de utilizar cualquier software desarrollado por Soluciones Digitales Solo.\n\nLeyes Aplicables:\n\nLa propiedad y la licencia del software desarrollado por Soluciones Digitales Solo están regidas por las leyes del país donde se desarrolla dicho software. Cualquier disputa o conflicto relacionado con el uso o la propiedad del software se resolverá de acuerdo con las leyes de este país.\n\nAceptación de Términos:\n\nEl uso de cualquier software desarrollado por Soluciones Digitales Solo implica la aceptación de los términos y condiciones establecidos en la licencia comercial correspondiente y en este descargo de responsabilidad.\n\nSoluciones Digitales Solo se reserva el derecho de cambiar estos términos y condiciones en cualquier momento sin previo aviso.\n',
+                              textAlign: TextAlign.justify,
                               style: FlutterFlowTheme.of(context).bodyMedium,
                             ),
                           ),
-                        ],
+                        ),
                       ),
-                    ),
+                    ],
                   ),
-                ),
-                Container(
-                  width: 100.0,
-                  height: 100.0,
-                  decoration: BoxDecoration(
-                    color: FlutterFlowTheme.of(context).secondaryBackground,
-                  ),
-                  child: Row(
+                  Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Align(
-                        alignment: AlignmentDirectional(0.00, 0.00),
+                      FFButtonWidget(
+                        onPressed: () async {
+                          context.pushNamed('services');
+                        },
+                        text: 'Rechazar',
+                        options: FFButtonOptions(
+                          height: 40.0,
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              24.0, 0.0, 24.0, 0.0),
+                          iconPadding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 0.0),
+                          color: FlutterFlowTheme.of(context).primary,
+                          textStyle:
+                              FlutterFlowTheme.of(context).titleSmall.override(
+                                    fontFamily: 'Urbanist',
+                                    color: Colors.white,
+                                  ),
+                          elevation: 3.0,
+                          borderSide: BorderSide(
+                            color: Colors.transparent,
+                            width: 1.0,
+                          ),
+                          borderRadius: BorderRadius.circular(8.0),
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            15.0, 15.0, 15.0, 15.0),
                         child: FFButtonWidget(
                           onPressed: () async {
-                            await launchURL(
-                                'https://www.facebook.com/solucionesdigitalessolo');
+                            context.pushNamed('Solicitud_DS');
                           },
-                          text: '',
-                          icon: FaIcon(
-                            FontAwesomeIcons.facebook,
-                          ),
+                          text: 'Aceptar',
                           options: FFButtonOptions(
                             height: 40.0,
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 24.0, 0.0, 24.0, 0.0),
                             iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                10.0, 10.0, 10.0, 10.0),
+                                0.0, 0.0, 0.0, 0.0),
                             color: FlutterFlowTheme.of(context).primary,
                             textStyle: FlutterFlowTheme.of(context)
                                 .titleSmall
@@ -333,8 +262,8 @@ class _KnowUsWidgetState extends State<KnowUsWidget> {
                       ),
                     ],
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ],

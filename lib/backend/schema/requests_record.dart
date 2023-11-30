@@ -106,6 +106,11 @@ class RequestsRecord extends FirestoreRecord {
   DateTime? get diaRecoleccion => _diaRecoleccion;
   bool hasDiaRecoleccion() => _diaRecoleccion != null;
 
+  // "email" field.
+  String? _email;
+  String get email => _email ?? '';
+  bool hasEmail() => _email != null;
+
   void _initializeFields() {
     _so = snapshotData['so'] as String?;
     _marca = snapshotData['marca'] as String?;
@@ -125,6 +130,7 @@ class RequestsRecord extends FirestoreRecord {
     _tipoConsultoria = snapshotData['tipoConsultoria'] as String?;
     _estado = snapshotData['estado'] as String?;
     _diaRecoleccion = snapshotData['diaRecoleccion'] as DateTime?;
+    _email = snapshotData['email'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -180,6 +186,7 @@ Map<String, dynamic> createRequestsRecordData({
   String? tipoConsultoria,
   String? estado,
   DateTime? diaRecoleccion,
+  String? email,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -201,6 +208,7 @@ Map<String, dynamic> createRequestsRecordData({
       'tipoConsultoria': tipoConsultoria,
       'estado': estado,
       'diaRecoleccion': diaRecoleccion,
+      'email': email,
     }.withoutNulls,
   );
 
@@ -229,7 +237,8 @@ class RequestsRecordDocumentEquality implements Equality<RequestsRecord> {
         e1?.servidor == e2?.servidor &&
         e1?.tipoConsultoria == e2?.tipoConsultoria &&
         e1?.estado == e2?.estado &&
-        e1?.diaRecoleccion == e2?.diaRecoleccion;
+        e1?.diaRecoleccion == e2?.diaRecoleccion &&
+        e1?.email == e2?.email;
   }
 
   @override
@@ -251,7 +260,8 @@ class RequestsRecordDocumentEquality implements Equality<RequestsRecord> {
         e?.servidor,
         e?.tipoConsultoria,
         e?.estado,
-        e?.diaRecoleccion
+        e?.diaRecoleccion,
+        e?.email
       ]);
 
   @override

@@ -26,27 +26,27 @@ class RatingsRecord extends FirestoreRecord {
   int get calidad => _calidad ?? 0;
   bool hasCalidad() => _calidad != null;
 
-  // "expectativas" field.
-  int? _expectativas;
-  int get expectativas => _expectativas ?? 0;
-  bool hasExpectativas() => _expectativas != null;
+  // "recomendaciones" field.
+  int? _recomendaciones;
+  int get recomendaciones => _recomendaciones ?? 0;
+  bool hasRecomendaciones() => _recomendaciones != null;
 
   // "costo" field.
   int? _costo;
   int get costo => _costo ?? 0;
   bool hasCosto() => _costo != null;
 
-  // "recomendaciones" field.
-  int? _recomendaciones;
-  int get recomendaciones => _recomendaciones ?? 0;
-  bool hasRecomendaciones() => _recomendaciones != null;
+  // "expectactiva" field.
+  int? _expectactiva;
+  int get expectactiva => _expectactiva ?? 0;
+  bool hasExpectactiva() => _expectactiva != null;
 
   void _initializeFields() {
     _usuario = snapshotData['usuario'] as DocumentReference?;
     _calidad = castToType<int>(snapshotData['calidad']);
-    _expectativas = castToType<int>(snapshotData['expectativas']);
-    _costo = castToType<int>(snapshotData['costo']);
     _recomendaciones = castToType<int>(snapshotData['recomendaciones']);
+    _costo = castToType<int>(snapshotData['costo']);
+    _expectactiva = castToType<int>(snapshotData['expectactiva']);
   }
 
   static CollectionReference get collection =>
@@ -86,17 +86,17 @@ class RatingsRecord extends FirestoreRecord {
 Map<String, dynamic> createRatingsRecordData({
   DocumentReference? usuario,
   int? calidad,
-  int? expectativas,
-  int? costo,
   int? recomendaciones,
+  int? costo,
+  int? expectactiva,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
       'usuario': usuario,
       'calidad': calidad,
-      'expectativas': expectativas,
-      'costo': costo,
       'recomendaciones': recomendaciones,
+      'costo': costo,
+      'expectactiva': expectactiva,
     }.withoutNulls,
   );
 
@@ -110,14 +110,14 @@ class RatingsRecordDocumentEquality implements Equality<RatingsRecord> {
   bool equals(RatingsRecord? e1, RatingsRecord? e2) {
     return e1?.usuario == e2?.usuario &&
         e1?.calidad == e2?.calidad &&
-        e1?.expectativas == e2?.expectativas &&
+        e1?.recomendaciones == e2?.recomendaciones &&
         e1?.costo == e2?.costo &&
-        e1?.recomendaciones == e2?.recomendaciones;
+        e1?.expectactiva == e2?.expectactiva;
   }
 
   @override
   int hash(RatingsRecord? e) => const ListEquality().hash(
-      [e?.usuario, e?.calidad, e?.expectativas, e?.costo, e?.recomendaciones]);
+      [e?.usuario, e?.calidad, e?.recomendaciones, e?.costo, e?.expectactiva]);
 
   @override
   bool isValidKey(Object? o) => o is RatingsRecord;

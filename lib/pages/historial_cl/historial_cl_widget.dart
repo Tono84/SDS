@@ -1,3 +1,4 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -7,25 +8,25 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'historial_cliente_model.dart';
-export 'historial_cliente_model.dart';
+import 'historial_cl_model.dart';
+export 'historial_cl_model.dart';
 
-class HistorialClienteWidget extends StatefulWidget {
-  const HistorialClienteWidget({Key? key}) : super(key: key);
+class HistorialClWidget extends StatefulWidget {
+  const HistorialClWidget({Key? key}) : super(key: key);
 
   @override
-  _HistorialClienteWidgetState createState() => _HistorialClienteWidgetState();
+  _HistorialClWidgetState createState() => _HistorialClWidgetState();
 }
 
-class _HistorialClienteWidgetState extends State<HistorialClienteWidget> {
-  late HistorialClienteModel _model;
+class _HistorialClWidgetState extends State<HistorialClWidget> {
+  late HistorialClModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => HistorialClienteModel());
+    _model = createModel(context, () => HistorialClModel());
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -179,8 +180,14 @@ class _HistorialClienteWidgetState extends State<HistorialClienteWidget> {
             ),
           ),
           Expanded(
-            child: StreamBuilder<List<RequestsRecord>>(
-              stream: queryRequestsRecord(),
+            child: FutureBuilder<List<RequestsRecord>>(
+              future: queryRequestsRecordOnce(
+                queryBuilder: (requestsRecord) => requestsRecord.where(
+                  'usuario',
+                  isEqualTo: currentUserReference,
+                  isNull: (currentUserReference) == null,
+                ),
+              ),
               builder: (context, snapshot) {
                 // Customize what your widget looks like when it's loading.
                 if (!snapshot.hasData) {
@@ -222,29 +229,106 @@ class _HistorialClienteWidgetState extends State<HistorialClienteWidget> {
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            Text(
-                              listViewRequestsRecord.tipoSoftware,
-                              style: FlutterFlowTheme.of(context).bodyMedium,
-                            ),
-                            Text(
-                              listViewRequestsRecord.servidor,
-                              style: FlutterFlowTheme.of(context).bodyMedium,
-                            ),
-                            Text(
-                              listViewRequestsRecord.tipoUso,
-                              style: FlutterFlowTheme.of(context).bodyMedium,
-                            ),
-                            Column(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.end,
-                              children: [
-                                Text(
-                                  listViewRequestsRecord.baseDatos,
-                                  style:
-                                      FlutterFlowTheme.of(context).bodyMedium,
+                            Expanded(
+                              child: Align(
+                                alignment: AlignmentDirectional(0.00, 0.00),
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      10.0, 10.0, 10.0, 10.0),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      Expanded(
+                                        child: Align(
+                                          alignment:
+                                              AlignmentDirectional(0.00, 0.00),
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    10.0, 10.0, 10.0, 10.0),
+                                            child: Text(
+                                              valueOrDefault<String>(
+                                                listViewRequestsRecord
+                                                    .tipoRequest,
+                                                'N/A',
+                                              ),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
                                 ),
-                              ],
+                              ),
+                            ),
+                            Expanded(
+                              child: Align(
+                                alignment: AlignmentDirectional(0.00, 0.00),
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      10.0, 10.0, 10.0, 10.0),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      Expanded(
+                                        child: Align(
+                                          alignment:
+                                              AlignmentDirectional(0.00, 0.00),
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    10.0, 10.0, 10.0, 10.0),
+                                            child: Text(
+                                              valueOrDefault<String>(
+                                                dateTimeFormat(
+                                                    'M/d h:mm a',
+                                                    listViewRequestsRecord
+                                                        .diaRecoleccion),
+                                                'N/A',
+                                              ),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Expanded(
+                              child: Align(
+                                alignment: AlignmentDirectional(0.00, 0.00),
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      10.0, 10.0, 10.0, 10.0),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      Expanded(
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  10.0, 10.0, 10.0, 10.0),
+                                          child: Text(
+                                            valueOrDefault<String>(
+                                              listViewRequestsRecord.estado,
+                                              'N/A',
+                                            ),
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium,
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
                             ),
                           ],
                         ),

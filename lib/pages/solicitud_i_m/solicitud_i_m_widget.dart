@@ -384,6 +384,7 @@ class _SolicitudIMWidgetState extends State<SolicitudIMWidget> {
                                 estado: 'Pendiente',
                                 diaRecoleccion: _model.datePicked,
                                 tipoRequest: 'Redes',
+                                email: currentUserEmail,
                               ));
                           await showDialog(
                             context: context,
